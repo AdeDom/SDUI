@@ -16,3 +16,4 @@ rootProject.name = "SDUI"
 include ':app'
 include ':core:ui-component'
 include ':showkase'
+include ':screenshot-test'
