@@ -36,7 +36,7 @@ fun MyAppNavHost(
             arguments = listOf(navArgument("key") { type = NavType.StringType })
         ) { backStackEntry ->
             val text = backStackEntry.arguments?.getString("key")
-            MovieScreen(text = text)
+            MovieScreen(text = text.toString())
         }
     }
 }

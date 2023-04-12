@@ -7,4 +7,6 @@ sealed interface HomeUiEvent {
     data class OnClickMovieListener(
         val key: String?,
     ) : HomeUiEvent
+
+    object OnClickHideDialogListener : HomeUiEvent
 }
