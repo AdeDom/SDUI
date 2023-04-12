@@ -3,7 +3,10 @@ package com.adedom.ui_component.data.models
 import com.adedom.ui_component.domain.models.ImageComponent
 import com.adedom.ui_component.domain.models.ImageRowComponent
 
-class ImageDataList : ArrayList<ImageData>()
+data class ImageDataMaster(
+    val id: Int?,
+    val data: ImageData?
+)
 
 data class ImageData(
     val number: Int?,
@@ -16,6 +19,7 @@ data class ImageData(
     val newEpisodes: String?
 )
 
+class ImageDataList : ArrayList<ImageDataMaster>()
 
 fun ImageDataList.toComponent(): ImageRowComponent {
     return ImageRowComponent(
@@ -25,16 +29,17 @@ fun ImageDataList.toComponent(): ImageRowComponent {
     )
 }
 
-fun ImageData.toComponent(): ImageComponent {
+fun ImageDataMaster.toComponent(): ImageComponent {
     return ImageComponent(
-        number = number,
-        name = name,
-        value = value
+        id = id ?: -1,
+        number = data?.number,
+        name = data?.name,
+        value = data?.value
             ?: "https://play-lh.googleusercontent.com/0fP9JUiv-PKujKpuHXTY-AL8rEFS3uy2c4dAlBUYz8kTVMFktVCKq5dnvlQ42WwL7pQ",
-        contentDescription = contentDescription,
-        width = width,
-        height = height ?: 100,
-        roundedCornerShape = roundedCornerShape ?: 0,
-        newEpisodes = newEpisodes
+        contentDescription = data?.contentDescription,
+        width = data?.width,
+        height = data?.height ?: 100,
+        roundedCornerShape = data?.roundedCornerShape ?: 0,
+        newEpisodes = data?.newEpisodes
     )
 }

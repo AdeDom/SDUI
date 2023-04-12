@@ -21,11 +21,11 @@ import com.adedom.ui_component.ui.component.text.TextUiComponent
 fun UiComponentsRender(
     modifier: Modifier = Modifier,
     uiComponents: List<UiComponent>,
-    onClick: () -> Unit,
+    onClick: (Int) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier.clickable(onClick = onClick)
+        modifier = modifier
     ) {
         items(uiComponents) {
             when (it) {
@@ -53,8 +53,15 @@ fun UiComponentsRender(
                             Modifier
                                 .fillMaxWidth()
                                 .height(it.height.dp)
+                                .clickable(onClick = {
+                                    onClick(it.id)
+                                })
                         else
-                            Modifier.size(it.width.dp, height = it.height.dp)
+                            Modifier
+                                .size(it.width.dp, height = it.height.dp)
+                                .clickable(onClick = {
+                                    onClick(it.id)
+                                })
                     )
                 }
                 is ProfileComponent -> {

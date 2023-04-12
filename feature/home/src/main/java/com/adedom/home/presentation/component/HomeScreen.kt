@@ -22,7 +22,7 @@ fun HomeScreen(
     UiComponentsRender(
         uiComponents = viewModel.uiState.uiComponents,
         onClick = {
-            viewModel.onEvent(HomeUiEvent.OnClickMovieListener(123))
+            viewModel.onEvent(HomeUiEvent.OnClickMovieListener(it))
         }
     )
 }

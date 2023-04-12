@@ -52,11 +52,11 @@ object SduiUtils {
                         }
                         imageComponentType -> {
                             val jsonString = try {
-                                component[data].toString()
+                                component.toString()
                             } catch (e: Throwable) {
                                 "{}"
                             }
-                            Gson().fromJson(jsonString, ImageData::class.java).toComponent()
+                            Gson().fromJson(jsonString, ImageDataMaster::class.java).toComponent()
                         }
                         profileComponentType -> {
                             val jsonString = try {
