@@ -1,7 +1,7 @@
 {
   "components": [
     {
-      "id": 1,
+      "key": "title",
       "type": "ImageComponent",
       "data": {
         "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
@@ -24,7 +24,7 @@
       "type": "ImageRowComponent",
       "children": [
         {
-          "id": 2,
+          "key": "recommend-1",
           "data": {
             "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
             "width": 150,

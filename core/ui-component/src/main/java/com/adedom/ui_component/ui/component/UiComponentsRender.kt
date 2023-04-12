@@ -21,7 +21,7 @@ import com.adedom.ui_component.ui.component.text.TextUiComponent
 fun UiComponentsRender(
     modifier: Modifier = Modifier,
     uiComponents: List<UiComponent>,
-    onClick: (Int) -> Unit,
+    onClick: (String?) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -57,13 +57,13 @@ fun UiComponentsRender(
                                 .fillMaxWidth()
                                 .height(it.height.dp)
                                 .clickable(onClick = {
-                                    onClick(it.id)
+                                    onClick(it.key)
                                 })
                         else
                             Modifier
                                 .size(it.width.dp, height = it.height.dp)
                                 .clickable(onClick = {
-                                    onClick(it.id)
+                                    onClick(it.key)
                                 })
                     )
                 }

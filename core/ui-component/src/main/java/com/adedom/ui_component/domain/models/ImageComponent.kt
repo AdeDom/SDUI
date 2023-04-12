@@ -1,7 +1,7 @@
 package com.adedom.ui_component.domain.models
 
 data class ImageComponent(
-    val id: Int,
+    val key: String?,
     val number: Int?,
     val name: String?,
     val value: String,

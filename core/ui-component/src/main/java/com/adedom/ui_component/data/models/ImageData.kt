@@ -4,7 +4,7 @@ import com.adedom.ui_component.domain.models.ImageComponent
 import com.adedom.ui_component.domain.models.ImageRowComponent
 
 data class ImageDataMaster(
-    val id: Int?,
+    val key: String?,
     val data: ImageData?
 )
 
@@ -31,7 +31,7 @@ fun ImageDataMasterList.toComponent(): ImageRowComponent {
 
 fun ImageDataMaster.toComponent(): ImageComponent {
     return ImageComponent(
-        id = id ?: -1,
+        key = key,
         number = data?.number,
         name = data?.name,
         value = data?.value

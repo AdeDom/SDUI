@@ -14,7 +14,7 @@ import com.adedom.ui_component.ui.component.image.ImageCardComponent
 fun ImageRowUiComponent(
     modifier: Modifier = Modifier,
     imageComponents: List<ImageComponent>,
-    onClick: (Int) -> Unit
+    onClick: (String?) -> Unit
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -34,13 +34,13 @@ fun ImageRowUiComponent(
                         .fillMaxWidth()
                         .height(it.height.dp)
                         .clickable(onClick = {
-                            onClick(it.id)
+                            onClick(it.key)
                         })
                 else
                     Modifier
                         .size(it.width.dp, it.height.dp)
                         .clickable(onClick = {
-                            onClick(it.id)
+                            onClick(it.key)
                         })
             )
         }

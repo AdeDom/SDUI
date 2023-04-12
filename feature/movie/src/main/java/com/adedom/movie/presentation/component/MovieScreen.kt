@@ -7,7 +7,7 @@ import com.adedom.ui_component.ui.component.text.AppText
 @Composable
 fun MovieScreen(
     modifier: Modifier = Modifier,
-    text: String,
+    text: String?,
 ) {
     AppText(
         text = "Hello, Movie - $text",

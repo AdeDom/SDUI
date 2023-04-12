@@ -27,16 +27,16 @@ fun MyAppNavHost(
             HomeScreen(
                 viewModel = koinViewModel(),
                 onNavigateToDetail = {
-                    navController.navigate("movie?movieId=$it")
+                    navController.navigate("movie?key=$it")
                 }
             )
         }
         composable(
-            route = "movie?movieId={movieId}",
-            arguments = listOf(navArgument("movieId") { type = NavType.IntType })
+            route = "movie?key={key}",
+            arguments = listOf(navArgument("key") { type = NavType.StringType })
         ) { backStackEntry ->
-            val text = backStackEntry.arguments?.getInt("movieId", -1)
-            MovieScreen(text = text.toString())
+            val text = backStackEntry.arguments?.getString("key")
+            MovieScreen(text = text)
         }
     }
 }

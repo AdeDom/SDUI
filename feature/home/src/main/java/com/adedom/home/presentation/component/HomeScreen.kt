@@ -9,7 +9,7 @@ import com.adedom.ui_component.ui.component.UiComponentsRender
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel,
-    onNavigateToDetail: (Int) -> Unit,
+    onNavigateToDetail: (String?) -> Unit,
 ) {
     LaunchedEffect(Unit) {
         viewModel.onEvent(HomeUiEvent.Initial)

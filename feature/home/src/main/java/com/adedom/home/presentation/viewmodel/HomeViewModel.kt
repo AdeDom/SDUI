@@ -20,8 +20,8 @@ class HomeViewModel(
     var uiState by mutableStateOf(HomeUiState())
         private set
 
-    private val _nav = Channel<Int>()
-    val nav: Flow<Int> = _nav.receiveAsFlow()
+    private val _nav = Channel<String?>()
+    val nav: Flow<String?> = _nav.receiveAsFlow()
 
     fun onEvent(event: HomeUiEvent) {
         viewModelScope.launch {
@@ -32,7 +32,7 @@ class HomeViewModel(
                     )
                 }
                 is HomeUiEvent.OnClickMovieListener -> {
-                    _nav.send(event.movieId)
+                    _nav.send(event.key)
                 }
             }
         }
