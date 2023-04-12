@@ -1,5 +1,6 @@
 package com.adedom.ui_component.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,11 +20,12 @@ import com.adedom.ui_component.ui.component.text.TextUiComponent
 @Composable
 fun UiComponentsRender(
     modifier: Modifier = Modifier,
-    uiComponents: List<UiComponent>
+    uiComponents: List<UiComponent>,
+    onClick: () -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier
+        modifier = modifier.clickable(onClick = onClick)
     ) {
         items(uiComponents) {
             when (it) {

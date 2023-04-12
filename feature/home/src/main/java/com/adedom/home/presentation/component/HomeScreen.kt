@@ -7,10 +7,22 @@ import com.adedom.home.presentation.viewmodel.HomeViewModel
 import com.adedom.ui_component.ui.component.UiComponentsRender
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel) {
+fun HomeScreen(
+    viewModel: HomeViewModel,
+    onNavigateToDetail: (Int) -> Unit,
+) {
     LaunchedEffect(Unit) {
         viewModel.onEvent(HomeUiEvent.Initial)
+
+        viewModel.nav.collect {
+            onNavigateToDetail(it)
+        }
     }
 
-    UiComponentsRender(uiComponents = viewModel.uiState.uiComponents)
+    UiComponentsRender(
+        uiComponents = viewModel.uiState.uiComponents,
+        onClick = {
+            viewModel.onEvent(HomeUiEvent.OnClickMovieListener(123))
+        }
+    )
 }
