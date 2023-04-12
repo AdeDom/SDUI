@@ -33,12 +33,9 @@ object SduiUtils {
                                 .toComponent()
                         }
                         profileRowComponentType -> {
-                            val jsonString = try {
-                                component[data].toString()
-                            } catch (e: Throwable) {
-                                "[]"
-                            }
-                            Gson().fromJson(jsonString, ProfileDataList::class.java).toComponent()
+                            val jsonString = component[children].toString()
+                            Gson().fromJson(jsonString, ProfileDataMasterList::class.java)
+                                .toComponent()
                         }
                         textComponentType -> {
                             val jsonString = try {
@@ -53,12 +50,8 @@ object SduiUtils {
                             Gson().fromJson(jsonString, ImageDataMaster::class.java).toComponent()
                         }
                         profileComponentType -> {
-                            val jsonString = try {
-                                component[data].toString()
-                            } catch (e: Throwable) {
-                                "{}"
-                            }
-                            Gson().fromJson(jsonString, ProfileData::class.java).toComponent()
+                            val jsonString = component.toString()
+                            Gson().fromJson(jsonString, ProfileDataMaster::class.java).toComponent()
                         }
                         spacerComponentType -> {
                             val jsonString = try {
