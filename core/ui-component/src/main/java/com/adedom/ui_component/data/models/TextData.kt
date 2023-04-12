@@ -3,6 +3,11 @@ package com.adedom.ui_component.data.models
 import com.adedom.ui_component.domain.models.TextComponent
 import com.google.gson.annotations.SerializedName
 
+data class TextDataMaster(
+    val key: String?,
+    val data: TextData?
+)
+
 data class TextData(
     val value: String?,
     val color: String?,
@@ -11,12 +16,13 @@ data class TextData(
     @SerializedName("padding") val padding: PaddingData?
 )
 
-fun TextData.toComponent(): TextComponent {
+fun TextDataMaster.toComponent(): TextComponent {
     return TextComponent(
-        value = value.orEmpty(),
-        color = color ?: "000000",
-        fontSize = fontSize ?: 16,
-        fontWeight = fontWeight ?: 400,
-        padding = padding ?: PaddingData()
+        key = key,
+        value = data?.value.orEmpty(),
+        color = data?.color ?: "000000",
+        fontSize = data?.fontSize ?: 16,
+        fontWeight = data?.fontWeight ?: 400,
+        padding = data?.padding ?: PaddingData()
     )
 }

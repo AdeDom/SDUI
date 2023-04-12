@@ -17,7 +17,6 @@ object SduiUtils {
     private const val profileComponentType = "ProfileComponent"
     private const val spacerComponentType = "SpacerComponent"
 
-    private const val data = "data"
     private const val children = "children"
 
     fun jsonDeserializer(): JsonDeserializer<SduiData> {
@@ -38,12 +37,8 @@ object SduiUtils {
                                 .toComponent()
                         }
                         textComponentType -> {
-                            val jsonString = try {
-                                component[data].toString()
-                            } catch (e: Throwable) {
-                                "{}"
-                            }
-                            Gson().fromJson(jsonString, TextData::class.java).toComponent()
+                            val jsonString = component.toString()
+                            Gson().fromJson(jsonString, TextDataMaster::class.java).toComponent()
                         }
                         imageComponentType -> {
                             val jsonString = component.toString()
@@ -54,12 +49,8 @@ object SduiUtils {
                             Gson().fromJson(jsonString, ProfileDataMaster::class.java).toComponent()
                         }
                         spacerComponentType -> {
-                            val jsonString = try {
-                                component[data].toString()
-                            } catch (e: Throwable) {
-                                "{}"
-                            }
-                            Gson().fromJson(jsonString, SpacerData::class.java).toComponent()
+                            val jsonString = component.toString()
+                            Gson().fromJson(jsonString, SpacerDataMaster::class.java).toComponent()
                         }
                         else -> NoneComponent
                     }
