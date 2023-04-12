@@ -30,7 +30,10 @@ fun UiComponentsRender(
         items(uiComponents) {
             when (it) {
                 is ImageRowComponent -> {
-                    ImageRowUiComponent(imageComponents = it.imageComponents)
+                    ImageRowUiComponent(
+                        imageComponents = it.imageComponents,
+                        onClick = onClick
+                    )
                 }
                 is ProfileRowComponent -> {
                     ProfileRowUiComponent(profileComponents = it.profileComponents)

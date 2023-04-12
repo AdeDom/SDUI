@@ -22,34 +22,45 @@
     },
     {
       "type": "ImageRowComponent",
-      "data": [
+      "children": [
         {
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
-          "width": 150,
-          "height": 200
+          "id": 2,
+          "data": {
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
+            "width": 150,
+            "height": 200
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/02/23/63f6e359c236e1.91660378.jpg",
-          "width": 150,
-          "height": 200,
-          "newEpisodes": "ตอนใหม่"
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/02/23/63f6e359c236e1.91660378.jpg",
+            "width": 150,
+            "height": 200,
+            "newEpisodes": "ตอนใหม่"
+          }
         },
         {
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/03/17/drama_poster_petranarumit_1679049957_4132.jpg",
-          "width": 150,
-          "height": 200,
-          "newEpisodes": "ตอนใหม่"
+          "data": {
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/03/17/drama_poster_petranarumit_1679049957_4132.jpg",
+            "width": 150,
+            "height": 200,
+            "newEpisodes": "ตอนใหม่"
+          }
         },
         {
-          "value": "https://www.online-idol.com/wp-content/uploads/2023/04/wp-35057-dang-fah-sin-tawan-2023-lakorn-poster.webp",
-          "width": 150,
-          "height": 200,
-          "newEpisodes": "ตอนใหม่"
+          "data": {
+            "value": "https://www.online-idol.com/wp-content/uploads/2023/04/wp-35057-dang-fah-sin-tawan-2023-lakorn-poster.webp",
+            "width": 150,
+            "height": 200,
+            "newEpisodes": "ตอนใหม่"
+          }
         },
         {
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/03/07/_11_66_112_1678205010_3897.jpg",
-          "width": 150,
-          "height": 200
+          "data": {
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/03/07/_11_66_112_1678205010_3897.jpg",
+            "width": 150,
+            "height": 200
+          }
         }
       ]
     },
@@ -67,30 +78,36 @@
     },
     {
       "type": "ImageRowComponent",
-      "data": [
+      "children": [
         {
-          "number": 1,
-          "name": "ฮักหลายมายเลดี้",
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/01/13/_790x1170_1673619601_5017.jpg",
-          "width": 250,
-          "height": 150,
-          "roundedCornerShape": 8
+          "data": {
+            "number": 1,
+            "name": "ฮักหลายมายเลดี้",
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/01/13/_790x1170_1673619601_5017.jpg",
+            "width": 250,
+            "height": 150,
+            "roundedCornerShape": 8
+          }
         },
         {
-          "number": 2,
-          "name": "เขยบ้านไร่ สะไภ้ไฮโซ",
-          "value": "https://ott-picture.bugaboo.tv/f14a3c3f-c924-4c55-af19-a8b868b0bc077224775683372083465-l.jpeg",
-          "width": 250,
-          "height": 150,
-          "roundedCornerShape": 8
+          "data": {
+            "number": 2,
+            "name": "เขยบ้านไร่ สะไภ้ไฮโซ",
+            "value": "https://ott-picture.bugaboo.tv/f14a3c3f-c924-4c55-af19-a8b868b0bc077224775683372083465-l.jpeg",
+            "width": 250,
+            "height": 150,
+            "roundedCornerShape": 8
+          }
         },
         {
-          "number": 3,
-          "name": "มธุรสโลกันตร์",
-          "value": "https://ott-picture.bugaboo.tv/0243dacc-b449-4773-bcb4-48c564820dc09120450168170077005-l.jpeg",
-          "width": 250,
-          "height": 150,
-          "roundedCornerShape": 8
+          "data": {
+            "number": 3,
+            "name": "มธุรสโลกันตร์",
+            "value": "https://ott-picture.bugaboo.tv/0243dacc-b449-4773-bcb4-48c564820dc09120450168170077005-l.jpeg",
+            "width": 250,
+            "height": 150,
+            "roundedCornerShape": 8
+          }
         }
       ]
     },
@@ -108,32 +125,42 @@
     },
     {
       "type": "ImageRowComponent",
-      "data": [
+      "children": [
         {
-          "value": "https://www.online-idol.com/wp-content/uploads/2023/04/wp-35057-dang-fah-sin-tawan-2023-lakorn-poster.webp",
-          "width": 100,
-          "height": 150,
-          "newEpisodes": "ตอนใหม่"
+          "data": {
+            "value": "https://www.online-idol.com/wp-content/uploads/2023/04/wp-35057-dang-fah-sin-tawan-2023-lakorn-poster.webp",
+            "width": 100,
+            "height": 150,
+            "newEpisodes": "ตอนใหม่"
+          }
         },
         {
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/08/14/5f364ff8400a41.67004198.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/08/14/5f364ff8400a41.67004198.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2022/04/12/6255a7b3b9d8e1.72254781.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2022/04/12/6255a7b3b9d8e1.72254781.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/09/16/5f61b1f5d212b9.95922249.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/09/16/5f61b1f5d212b9.95922249.jpg",
+            "width": 100,
+            "height": 150
+          }
         }
       ]
     },
@@ -151,31 +178,41 @@
     },
     {
       "type": "ImageRowComponent",
-      "data": [
+      "children": [
         {
-          "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.bugaboo.tv/dm/sz-md/i/images/2023/02/06/poster_1675673977_3785.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2022/02/25/6218bbb11b0f92.35054740.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2022/02/25/6218bbb11b0f92.35054740.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/07/22/5f1831a8b04933.96143939.jpg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://cdni-hw.ch7.com/dm/sz-sm/i/images/2020/07/22/5f1831a8b04933.96143939.jpg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://ott-picture.bugaboo.tv/1a0d64a8-7987-4a7d-8714-eddac29562b74233637904811123613-l.jpeg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://ott-picture.bugaboo.tv/1a0d64a8-7987-4a7d-8714-eddac29562b74233637904811123613-l.jpeg",
+            "width": 100,
+            "height": 150
+          }
         },
         {
-          "value": "https://ott-picture.bugaboo.tv/05abe4ca-d0b5-47c9-9d93-54fc62e694fa1326372360740864913-l.jpeg",
-          "width": 100,
-          "height": 150
+          "data": {
+            "value": "https://ott-picture.bugaboo.tv/05abe4ca-d0b5-47c9-9d93-54fc62e694fa1326372360740864913-l.jpeg",
+            "width": 100,
+            "height": 150
+          }
         }
       ]
     },
@@ -193,36 +230,46 @@
     },
     {
       "type": "ProfileRowComponent",
-      "data": [
+      "children": [
         {
-          "name": "น้ำ รพีภัทร",
-          "value": "https://cms.dmpcdn.com/dara/2020/11/18/19113450-2981-11eb-b122-ab8fac95f2a2_original.jpg",
-          "width": 80,
-          "height": 80
+          "data": {
+            "name": "น้ำ รพีภัทร",
+            "value": "https://cms.dmpcdn.com/dara/2020/11/18/19113450-2981-11eb-b122-ab8fac95f2a2_original.jpg",
+            "width": 80,
+            "height": 80
+          }
         },
         {
-          "name": "เฟิร์น เกษรา",
-          "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2021/07/15/60f00863459b24.25745073.jpeg",
-          "width": 80,
-          "height": 80
+          "data": {
+            "name": "เฟิร์น เกษรา",
+            "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2021/07/15/60f00863459b24.25745073.jpeg",
+            "width": 80,
+            "height": 80
+          }
         },
         {
-          "name": "ฟีฟ่า เปรมอนันต์",
-          "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/01/04/63b500427d5978.07264510.jpg",
-          "width": 80,
-          "height": 80
+          "data": {
+            "name": "ฟีฟ่า เปรมอนันต์",
+            "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/01/04/63b500427d5978.07264510.jpg",
+            "width": 80,
+            "height": 80
+          }
         },
         {
-          "name": "ปูเป้ เกศรินทร์",
-          "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/01/04/63b4fcb3c975e8.89361491.jpg",
-          "width": 80,
-          "height": 80
+          "data": {
+            "name": "ปูเป้ เกศรินทร์",
+            "value": "https://cdni-hw.ch7.com/dm/sz-md/i/images/2023/01/04/63b4fcb3c975e8.89361491.jpg",
+            "width": 80,
+            "height": 80
+          }
         },
         {
-          "name": "ยุ้ย จีรนันท์",
-          "value": "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa3yX3fl2WQ2wd1DvRttxaL37ySd1ja82JXY8a1b2cOD5p25jlMec.webp",
-          "width": 80,
-          "height": 80
+          "data": {
+            "name": "ยุ้ย จีรนันท์",
+            "value": "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa3yX3fl2WQ2wd1DvRttxaL37ySd1ja82JXY8a1b2cOD5p25jlMec.webp",
+            "width": 80,
+            "height": 80
+          }
         }
       ]
     },

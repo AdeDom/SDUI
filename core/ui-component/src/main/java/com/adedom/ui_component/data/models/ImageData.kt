@@ -19,9 +19,9 @@ data class ImageData(
     val newEpisodes: String?
 )
 
-class ImageDataList : ArrayList<ImageDataMaster>()
+class ImageDataMasterList : ArrayList<ImageDataMaster>()
 
-fun ImageDataList.toComponent(): ImageRowComponent {
+fun ImageDataMasterList.toComponent(): ImageRowComponent {
     return ImageRowComponent(
         this.map {
             it.toComponent()

@@ -1,5 +1,6 @@
 package com.adedom.ui_component.ui.component.row
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -12,7 +13,8 @@ import com.adedom.ui_component.ui.component.image.ImageCardComponent
 @Composable
 fun ImageRowUiComponent(
     modifier: Modifier = Modifier,
-    imageComponents: List<ImageComponent>
+    imageComponents: List<ImageComponent>,
+    onClick: (Int) -> Unit
 ) {
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -31,8 +33,15 @@ fun ImageRowUiComponent(
                     Modifier
                         .fillMaxWidth()
                         .height(it.height.dp)
+                        .clickable(onClick = {
+                            onClick(it.id)
+                        })
                 else
-                    Modifier.size(it.width.dp, it.height.dp)
+                    Modifier
+                        .size(it.width.dp, it.height.dp)
+                        .clickable(onClick = {
+                            onClick(it.id)
+                        })
             )
         }
     }
