@@ -25,7 +25,9 @@ fun MyAppNavHost(
         startDestination = startDestination
     ) {
         composable("adaptive-card") {
-            AdaptiveCardScreen()
+            AdaptiveCardScreen(
+                viewModel = koinViewModel()
+            )
         }
         composable("home") {
             HomeScreen(
