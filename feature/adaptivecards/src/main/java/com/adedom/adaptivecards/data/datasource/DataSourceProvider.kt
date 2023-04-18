@@ -1,7 +1,13 @@
 package com.adedom.adaptivecards.data.datasource
 
+import com.adedom.adaptivecards.data.datasource.adapter.ComponentSizeAdapter
+import com.adedom.adaptivecards.data.datasource.adapter.ComponentTypeAdapter
+import com.adedom.adaptivecards.data.datasource.adapter.ComponentWeightAdapter
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
+import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.data.models.ComponentType
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -11,6 +17,16 @@ class DataSourceProvider {
 
     fun getMockyService(): MockyService {
         val moshi: Moshi = Moshi.Builder()
+            .add(
+                PolymorphicJsonAdapterFactory
+                    .of(Component::class.java, "type")
+                    .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
+                    .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
+                    .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
+            )
+            .add(ComponentTypeAdapter)
+            .add(ComponentSizeAdapter)
+            .add(ComponentWeightAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 
