@@ -20,6 +20,7 @@ class DataSourceProvider {
             .add(
                 PolymorphicJsonAdapterFactory
                     .of(Component::class.java, "type")
+                    .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
                     .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
                     .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
                     .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)

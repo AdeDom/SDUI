@@ -1,11 +1,18 @@
 package com.adedom.adaptivecards.presentation.component
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
@@ -20,37 +27,52 @@ fun AdaptiveCardScreen(
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)
     }
 
-    LazyColumn {
-        itemsIndexed(uiState.adaptiveCardResponse?.body ?: emptyList()) { index, component ->
+    UiComponent(uiState.adaptiveCardResponse?.body ?: emptyList())
+}
+
+@Composable
+fun UiComponent(components: List<Component>) {
+    Column(Modifier.verticalScroll(rememberScrollState())) {
+        components.forEach { component ->
             when (component) {
+                is Component.Column -> {
+                    Text(text = component.type?.value.toString())
+                }
+
                 is Component.ColumnSet -> {
                     Column {
-                        Text(text = "index :: $index")
                         Text(text = component.type?.value.toString())
+                        component.columns.forEach {
+                            val data = """
+                                type : ${it.type}
+                            """.trimIndent()
+                            Text(text = data)
+                        }
                     }
                 }
 
                 is Component.FactSet -> {
-                    Column {
-                        Text(text = "index :: $index")
-                        Text(text = component.type?.value.toString())
-                    }
+                    Text(text = component.type?.value.toString())
                 }
 
                 is Component.TextBlock -> {
                     val data = """
-                        type : ${component.type?.value},
-                        size : ${component.size?.value},
-                        weight : ${component.weight?.value},
-                        text : ${component.text},
-                        wrap : ${component.wrap},
+                        type : ${component.type?.value}
+                        size : ${component.size?.value}
+                        weight : ${component.weight?.value}
+                        text : ${component.text}
+                        wrap : ${component.wrap}
                     """.trimIndent()
-                    Column {
-                        Text(text = "index :: $index")
-                        Text(text = data)
-                    }
+                    Text(text = data)
                 }
             }
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(Color.Black)
+            )
         }
     }
 }

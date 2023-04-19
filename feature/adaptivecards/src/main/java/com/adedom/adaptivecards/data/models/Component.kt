@@ -7,15 +7,15 @@ import com.squareup.moshi.Json
 
 sealed interface Component {
 
-//    data class Column(
-//        @Json(name = "type") val type: ComponentType?,
+    data class Column(
+        @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "facts") val facts: List<String> = emptyList(),
 //        @Json(name = "width") val width: String?,
-//    ) : Component
+    ) : Component
 
     data class ColumnSet(
         @Json(name = "type") val type: ComponentType?,
-//        @Json(name = "columns") val columns: List<String> = emptyList(),
+        @Json(name = "columns") val columns: List<Column> = emptyList(),
     ) : Component
 
     data class FactSet(
