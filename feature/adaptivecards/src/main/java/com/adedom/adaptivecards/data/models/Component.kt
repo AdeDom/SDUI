@@ -23,7 +23,7 @@ sealed interface Component {
 
     data class FactSet(
         @Json(name = "type") val type: ComponentType?,
-//        @Json(name = "facts") val facts: List<String> = emptyList(),
+        @Json(name = "facts") val facts: List<FactSetData> = emptyList(),
     ) : Component
 
     data class Image(

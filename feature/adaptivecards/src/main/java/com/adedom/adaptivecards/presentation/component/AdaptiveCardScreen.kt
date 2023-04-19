@@ -71,6 +71,11 @@ fun ColumnSetText(component: Component.ColumnSet) {
 fun FactSetText(component: Component.FactSet) {
     Column {
         component.type?.let { Text(it.value) }
+        component.facts.forEach { fact ->
+            fact.data?.let { Text(it) }
+            fact.title?.let { Text(it) }
+            fact.value?.let { Text(it) }
+        }
         Line()
     }
 }
