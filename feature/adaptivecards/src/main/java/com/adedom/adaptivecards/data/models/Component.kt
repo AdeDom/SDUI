@@ -1,6 +1,7 @@
 package com.adedom.adaptivecards.data.models
 
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
+import com.adedom.adaptivecards.data.models.enumclass.ComponentSpacing
 import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
@@ -36,7 +37,9 @@ sealed interface Component {
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "size") val size: ComponentSize?,
         @Json(name = "weight") val weight: ComponentWeight?,
+        @Json(name = "spacing") val spacing: ComponentSpacing?,
         @Json(name = "text") val text: String?,
+        @Json(name = "isSubtle") val isSubtle: Boolean?,
         @Json(name = "wrap") val wrap: Boolean?,
     ) : Component
 }

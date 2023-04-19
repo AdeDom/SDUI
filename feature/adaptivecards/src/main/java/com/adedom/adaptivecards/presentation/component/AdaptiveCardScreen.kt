@@ -92,7 +92,9 @@ fun TextBlockText(component: Component.TextBlock) {
         component.type?.let { Text(it.value) }
         component.size?.let { Text(it.value) }
         component.weight?.let { Text(it.value) }
+        component.spacing?.let { Text(it.value) }
         component.text?.let { Text(it) }
+        component.isSubtle?.let { Text(it.toString()) }
         component.wrap?.let { Text(it.toString()) }
         Line()
     }
