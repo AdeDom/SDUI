@@ -1,11 +1,11 @@
 package com.adedom.adaptivecards.data.datasource
 
-import com.adedom.adaptivecards.data.datasource.adapter.ComponentSizeAdapter
-import com.adedom.adaptivecards.data.datasource.adapter.ComponentTypeAdapter
-import com.adedom.adaptivecards.data.datasource.adapter.ComponentWeightAdapter
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
 import com.adedom.adaptivecards.data.models.Component
-import com.adedom.adaptivecards.data.models.ComponentType
+import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentWeightAdapter
+import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

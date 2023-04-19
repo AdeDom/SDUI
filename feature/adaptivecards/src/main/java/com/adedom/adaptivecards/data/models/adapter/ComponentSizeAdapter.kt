@@ -1,6 +1,6 @@
-package com.adedom.adaptivecards.data.datasource.adapter
+package com.adedom.adaptivecards.data.models.adapter
 
-import com.adedom.adaptivecards.data.models.ComponentSize
+import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 
