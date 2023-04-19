@@ -6,8 +6,8 @@ import com.squareup.moshi.ToJson
 
 object ComponentSizeAdapter {
     @ToJson
-    fun toJson(size: ComponentSize): String {
-        return size.value
+    fun toJson(value: ComponentSize): String {
+        return value.value
     }
 
     @FromJson

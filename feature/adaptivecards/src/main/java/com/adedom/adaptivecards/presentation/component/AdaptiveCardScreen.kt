@@ -45,6 +45,7 @@ fun UiComponent(components: List<Component>) {
                         component.columns.forEach {
                             val data = """
                                 type : ${it.type}
+                                width : ${it.width?.value}
                             """.trimIndent()
                             Text(text = data)
                         }

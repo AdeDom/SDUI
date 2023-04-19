@@ -3,6 +3,7 @@ package com.adedom.adaptivecards.data.models
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
+import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
 import com.squareup.moshi.Json
 
 sealed interface Component {
@@ -10,7 +11,7 @@ sealed interface Component {
     data class Column(
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "facts") val facts: List<String> = emptyList(),
-//        @Json(name = "width") val width: String?,
+        @Json(name = "width") val width: ComponentWidth?,
     ) : Component
 
     data class ColumnSet(

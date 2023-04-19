@@ -5,6 +5,7 @@ import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentWeightAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentWidthAdapter
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
@@ -28,6 +29,7 @@ class DataSourceProvider {
             .add(ComponentTypeAdapter)
             .add(ComponentSizeAdapter)
             .add(ComponentWeightAdapter)
+            .add(ComponentWidthAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 

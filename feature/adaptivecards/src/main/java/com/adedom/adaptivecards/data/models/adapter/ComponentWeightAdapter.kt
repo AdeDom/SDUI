@@ -6,8 +6,8 @@ import com.squareup.moshi.ToJson
 
 object ComponentWeightAdapter {
     @ToJson
-    fun toJson(weight: ComponentWeight): String {
-        return weight.value
+    fun toJson(value: ComponentWeight): String {
+        return value.value
     }
 
     @FromJson
