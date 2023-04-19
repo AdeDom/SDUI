@@ -44,6 +44,7 @@ fun ComponentText(component: Component) {
     when (component) {
         is Component.ActionOpenUrl -> ActionOpenUrlText(component)
         is Component.ActionShowCard -> ActionShowCardText(component)
+        is Component.ActionSubmit -> ActionSubmitText(component)
         is Component.AdaptiveCard -> AdaptiveCardText(component)
         is Component.Column -> ColumnText(component)
         is Component.ColumnSet -> ColumnSetText(component)
@@ -76,10 +77,19 @@ fun ActionShowCardText(component: Component.ActionShowCard) {
 }
 
 @Composable
+fun ActionSubmitText(component: Component.ActionSubmit) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.title?.let { Text(it) }
+    }
+}
+
+@Composable
 fun AdaptiveCardText(component: Component.AdaptiveCard) {
     Column {
         component.type?.let { Text(it.value) }
         component.body.forEach { ComponentText(it) }
+        component.actions.forEach { ComponentText(it) }
         component.schema?.let { Text(it) }
         Line()
     }

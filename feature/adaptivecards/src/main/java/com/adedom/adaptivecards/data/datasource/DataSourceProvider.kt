@@ -23,6 +23,7 @@ class DataSourceProvider {
             .of(Component::class.java, "type")
             .withSubtype(Component.ActionOpenUrl::class.java, ComponentType.ACTION_OPEN_URL.value)
             .withSubtype(Component.ActionShowCard::class.java, ComponentType.ACTION_SHOW_CARD.value)
+            .withSubtype(Component.ActionSubmit::class.java, ComponentType.ACTION_SUBMIT.value)
             .withSubtype(Component.AdaptiveCard::class.java, ComponentType.ADAPTIVE_CARD.value)
             .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
             .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)

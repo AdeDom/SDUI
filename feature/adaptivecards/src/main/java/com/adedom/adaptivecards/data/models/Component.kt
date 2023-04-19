@@ -22,9 +22,15 @@ sealed interface Component {
         @Json(name = "card") val card: AdaptiveCard?,
     ) : Component
 
+    data class ActionSubmit(
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "title") val title: String?,
+    ) : Component
+
     data class AdaptiveCard(
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "body") val body: List<Component> = emptyList(),
+        @Json(name = "actions") val actions: List<Component> = emptyList(),
         @Json(name = "\$schema") val schema: String?,
     ) : Component
 
