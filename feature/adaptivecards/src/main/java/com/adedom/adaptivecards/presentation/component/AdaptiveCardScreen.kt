@@ -49,6 +49,8 @@ fun ComponentText(component: Component) {
         is Component.ColumnSet -> ColumnSetText(component)
         is Component.FactSet -> FactSetText(component)
         is Component.Image -> ImageText(component)
+        is Component.InputDate -> InputDateText(component)
+        is Component.InputText -> InputTextText(component)
         is Component.TextBlock -> TextBlockText(component)
     }
 }
@@ -77,6 +79,7 @@ fun ActionShowCardText(component: Component.ActionShowCard) {
 fun AdaptiveCardText(component: Component.AdaptiveCard) {
     Column {
         component.type?.let { Text(it.value) }
+        component.body.forEach { ComponentText(it) }
         component.schema?.let { Text(it) }
         Line()
     }
@@ -122,6 +125,24 @@ fun ImageText(component: Component.Image) {
         component.url?.let { Text(it) }
         component.size?.let { Text(it.value) }
         Line()
+    }
+}
+
+@Composable
+fun InputDateText(component: Component.InputDate) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.id?.let { Text(it) }
+    }
+}
+
+@Composable
+fun InputTextText(component: Component.InputText) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.id?.let { Text(it) }
+        component.placeholder?.let { Text(it) }
+        component.isMultiline?.let { Text(it.toString()) }
     }
 }
 

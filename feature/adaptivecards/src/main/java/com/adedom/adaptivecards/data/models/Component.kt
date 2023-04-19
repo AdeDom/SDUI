@@ -24,6 +24,7 @@ sealed interface Component {
 
     data class AdaptiveCard(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "body") val body: List<Component> = emptyList(),
         @Json(name = "\$schema") val schema: String?,
     ) : Component
 
@@ -48,6 +49,18 @@ sealed interface Component {
         @Json(name = "style") val style: ComponentStyle?,
         @Json(name = "url") val url: String?,
         @Json(name = "size") val size: ComponentSize?,
+    ) : Component
+
+    data class InputDate(
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "id") val id: String?,
+    ) : Component
+
+    data class InputText(
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "id") val id: String?,
+        @Json(name = "placeholder") val placeholder: String?,
+        @Json(name = "isMultiline") val isMultiline: Boolean?,
     ) : Component
 
     data class TextBlock(

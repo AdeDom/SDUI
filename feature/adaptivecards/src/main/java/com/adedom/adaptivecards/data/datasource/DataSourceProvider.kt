@@ -28,6 +28,8 @@ class DataSourceProvider {
             .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
             .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
             .withSubtype(Component.Image::class.java, ComponentType.IMAGE.value)
+            .withSubtype(Component.InputDate::class.java, ComponentType.INPUT_DATE.value)
+            .withSubtype(Component.InputText::class.java, ComponentType.INPUT_TEXT.value)
             .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
 
         val moshi: Moshi = Moshi.Builder()
