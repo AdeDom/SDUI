@@ -1,6 +1,7 @@
 package com.adedom.adaptivecards.data.models
 
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
+import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
@@ -10,7 +11,7 @@ sealed interface Component {
 
     data class Column(
         @Json(name = "type") val type: ComponentType?,
-//        @Json(name = "facts") val facts: List<String> = emptyList(),
+        @Json(name = "items") val items: List<Image> = emptyList(),
         @Json(name = "width") val width: ComponentWidth?,
     ) : Component
 
@@ -22,6 +23,13 @@ sealed interface Component {
     data class FactSet(
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "facts") val facts: List<String> = emptyList(),
+    ) : Component
+
+    data class Image(
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "style") val style: ComponentStyle?,
+        @Json(name = "url") val url: String?,
+        @Json(name = "size") val size: ComponentSize?,
     ) : Component
 
     data class TextBlock(

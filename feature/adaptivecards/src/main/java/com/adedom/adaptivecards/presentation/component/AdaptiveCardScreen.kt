@@ -35,45 +35,78 @@ fun UiComponent(components: List<Component>) {
     Column(Modifier.verticalScroll(rememberScrollState())) {
         components.forEach { component ->
             when (component) {
-                is Component.Column -> {
-                    Text(text = component.type?.value.toString())
-                }
-
-                is Component.ColumnSet -> {
-                    Column {
-                        Text(text = component.type?.value.toString())
-                        component.columns.forEach {
-                            val data = """
-                                type : ${it.type}
-                                width : ${it.width?.value}
-                            """.trimIndent()
-                            Text(text = data)
-                        }
-                    }
-                }
-
-                is Component.FactSet -> {
-                    Text(text = component.type?.value.toString())
-                }
-
-                is Component.TextBlock -> {
-                    val data = """
-                        type : ${component.type?.value}
-                        size : ${component.size?.value}
-                        weight : ${component.weight?.value}
-                        text : ${component.text}
-                        wrap : ${component.wrap}
-                    """.trimIndent()
-                    Text(text = data)
-                }
+                is Component.Column -> ColumnText(component)
+                is Component.ColumnSet -> ColumnSetText(component)
+                is Component.FactSet -> FactSetText(component)
+                is Component.Image -> ImageText(component)
+                is Component.TextBlock -> TextBlockText(component)
             }
-
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-                    .background(Color.Black)
-            )
         }
     }
+}
+
+@Composable
+fun ColumnText(component: Component.Column) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.items.forEach {
+            ImageText(it)
+            Line()
+        }
+        component.width?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun ColumnSetText(component: Component.ColumnSet) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.columns.forEach {
+            ColumnText(it)
+            Line()
+        }
+        Line()
+    }
+}
+
+@Composable
+fun FactSetText(component: Component.FactSet) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun ImageText(component: Component.Image) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.style?.let { Text(it.value) }
+        component.url?.let { Text(it) }
+        component.size?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun TextBlockText(component: Component.TextBlock) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.size?.let { Text(it.value) }
+        component.weight?.let { Text(it.value) }
+        component.text?.let { Text(it) }
+        component.wrap?.let { Text(it.toString()) }
+        Line()
+    }
+}
+
+@Composable
+fun Line() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .background(Color.Black)
+    )
 }

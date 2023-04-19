@@ -3,6 +3,7 @@ package com.adedom.adaptivecards.data.datasource
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentWeightAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentWidthAdapter
@@ -24,12 +25,14 @@ class DataSourceProvider {
                     .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
                     .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
                     .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
+                    .withSubtype(Component.Image::class.java, ComponentType.IMAGE.value)
                     .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
             )
             .add(ComponentTypeAdapter)
             .add(ComponentSizeAdapter)
             .add(ComponentWeightAdapter)
             .add(ComponentWidthAdapter)
+            .add(ComponentStyleAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 
