@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.adedom.adaptivecards.presentation.component.AdaptiveCardScreen
 import com.adedom.home.presentation.component.HomeScreen
 import com.adedom.movie.presentation.component.MovieScreen
 import org.koin.androidx.compose.koinViewModel
@@ -16,13 +17,18 @@ import org.koin.androidx.compose.koinViewModel
 fun MyAppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "home",
+    startDestination: String = "adaptive-card"
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {
+        composable("adaptive-card") {
+            AdaptiveCardScreen(
+                viewModel = koinViewModel()
+            )
+        }
         composable("home") {
             HomeScreen(
                 viewModel = koinViewModel(),
