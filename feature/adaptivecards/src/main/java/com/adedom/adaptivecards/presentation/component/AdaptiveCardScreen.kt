@@ -44,6 +44,7 @@ fun ComponentText(component: Component) {
     when (component) {
         is Component.ActionOpenUrl -> ActionOpenUrlText(component)
         is Component.ActionShowCard -> ActionShowCardText(component)
+        is Component.AdaptiveCard -> AdaptiveCardText(component)
         is Component.Column -> ColumnText(component)
         is Component.ColumnSet -> ColumnSetText(component)
         is Component.FactSet -> FactSetText(component)
@@ -67,6 +68,16 @@ fun ActionShowCardText(component: Component.ActionShowCard) {
     Column {
         component.type?.let { Text(it.value) }
         component.title?.let { Text(it) }
+        component.card?.let { AdaptiveCardText(it) }
+        Line()
+    }
+}
+
+@Composable
+fun AdaptiveCardText(component: Component.AdaptiveCard) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.schema?.let { Text(it) }
         Line()
     }
 }

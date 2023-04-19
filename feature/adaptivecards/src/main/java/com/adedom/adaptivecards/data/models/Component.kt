@@ -19,6 +19,12 @@ sealed interface Component {
     data class ActionShowCard(
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
+        @Json(name = "card") val card: AdaptiveCard?,
+    ) : Component
+
+    data class AdaptiveCard(
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "\$schema") val schema: String?,
     ) : Component
 
     data class Column(
