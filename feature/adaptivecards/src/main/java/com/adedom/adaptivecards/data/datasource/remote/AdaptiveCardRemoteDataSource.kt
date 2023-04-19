@@ -1,8 +1,8 @@
 package com.adedom.adaptivecards.data.datasource.remote
 
-import com.adedom.adaptivecards.data.models.AdaptiveCardResponse
+import com.adedom.adaptivecards.data.models.Component
 
 interface AdaptiveCardRemoteDataSource {
 
-    suspend fun getAdaptiveCard(): AdaptiveCardResponse
+    suspend fun getAdaptiveCard(): Component
 }

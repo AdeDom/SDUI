@@ -1,7 +1,7 @@
 package com.adedom.adaptivecards.presentation.state
 
-import com.adedom.adaptivecards.data.models.AdaptiveCardResponse
+import com.adedom.adaptivecards.data.models.Component
 
 data class AdaptiveCardUiState(
-    val adaptiveCardResponse: AdaptiveCardResponse? = null,
+    val component: Component? = null,
 )

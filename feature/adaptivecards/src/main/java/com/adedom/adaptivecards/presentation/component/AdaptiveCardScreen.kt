@@ -13,7 +13,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.adedom.adaptivecards.data.models.AdaptiveCardResponse
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
@@ -28,14 +27,13 @@ fun AdaptiveCardScreen(
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)
     }
 
-    AdaptiveCardContent(uiState.adaptiveCardResponse)
+    AdaptiveCardContent(uiState.component)
 }
 
 @Composable
-fun AdaptiveCardContent(adaptiveCardResponse: AdaptiveCardResponse?) {
+fun AdaptiveCardContent(component: Component?) {
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        adaptiveCardResponse?.body?.forEach { ComponentText(it) }
-        adaptiveCardResponse?.actions?.forEach { ComponentText(it) }
+        component?.let { ComponentText(it) }
     }
 }
 
@@ -91,6 +89,7 @@ fun AdaptiveCardText(component: Component.AdaptiveCard) {
         component.body.forEach { ComponentText(it) }
         component.actions.forEach { ComponentText(it) }
         component.schema?.let { Text(it) }
+        component.version?.let { Text(it) }
         Line()
     }
 }

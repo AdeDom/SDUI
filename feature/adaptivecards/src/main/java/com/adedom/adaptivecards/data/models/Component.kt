@@ -32,6 +32,7 @@ sealed interface Component {
         @Json(name = "body") val body: List<Component> = emptyList(),
         @Json(name = "actions") val actions: List<Component> = emptyList(),
         @Json(name = "\$schema") val schema: String?,
+        @Json(name = "version") val version: String?,
     ) : Component
 
     data class Column(
