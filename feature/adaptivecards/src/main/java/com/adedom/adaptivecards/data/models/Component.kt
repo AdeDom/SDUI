@@ -11,13 +11,13 @@ sealed interface Component {
 
     data class Column(
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "items") val items: List<Image> = emptyList(),
+        @Json(name = "items") val items: List<Component> = emptyList(),
         @Json(name = "width") val width: ComponentWidth?,
     ) : Component
 
     data class ColumnSet(
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "columns") val columns: List<Column> = emptyList(),
+        @Json(name = "columns") val columns: List<Component> = emptyList(),
     ) : Component
 
     data class FactSet(

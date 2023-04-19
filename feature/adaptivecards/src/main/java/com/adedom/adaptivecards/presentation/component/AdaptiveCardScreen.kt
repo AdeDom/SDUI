@@ -33,15 +33,18 @@ fun AdaptiveCardScreen(
 @Composable
 fun UiComponent(components: List<Component>) {
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        components.forEach { component ->
-            when (component) {
-                is Component.Column -> ColumnText(component)
-                is Component.ColumnSet -> ColumnSetText(component)
-                is Component.FactSet -> FactSetText(component)
-                is Component.Image -> ImageText(component)
-                is Component.TextBlock -> TextBlockText(component)
-            }
-        }
+        components.forEach { ComponentText(it) }
+    }
+}
+
+@Composable
+fun ComponentText(component: Component) {
+    when (component) {
+        is Component.Column -> ColumnText(component)
+        is Component.ColumnSet -> ColumnSetText(component)
+        is Component.FactSet -> FactSetText(component)
+        is Component.Image -> ImageText(component)
+        is Component.TextBlock -> TextBlockText(component)
     }
 }
 
@@ -49,10 +52,7 @@ fun UiComponent(components: List<Component>) {
 fun ColumnText(component: Component.Column) {
     Column {
         component.type?.let { Text(it.value) }
-        component.items.forEach {
-            ImageText(it)
-            Line()
-        }
+        component.items.forEach { ComponentText(it) }
         component.width?.let { Text(it.value) }
         Line()
     }
@@ -62,10 +62,7 @@ fun ColumnText(component: Component.Column) {
 fun ColumnSetText(component: Component.ColumnSet) {
     Column {
         component.type?.let { Text(it.value) }
-        component.columns.forEach {
-            ColumnText(it)
-            Line()
-        }
+        component.columns.forEach { ComponentText(it) }
         Line()
     }
 }
