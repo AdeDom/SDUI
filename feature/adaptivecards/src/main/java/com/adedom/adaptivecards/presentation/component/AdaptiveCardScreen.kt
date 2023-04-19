@@ -13,6 +13,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.adedom.adaptivecards.data.models.AdaptiveCardResponse
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
@@ -27,24 +28,46 @@ fun AdaptiveCardScreen(
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)
     }
 
-    UiComponent(uiState.adaptiveCardResponse?.body ?: emptyList())
+    AdaptiveCardContent(uiState.adaptiveCardResponse)
 }
 
 @Composable
-fun UiComponent(components: List<Component>) {
+fun AdaptiveCardContent(adaptiveCardResponse: AdaptiveCardResponse?) {
     Column(Modifier.verticalScroll(rememberScrollState())) {
-        components.forEach { ComponentText(it) }
+        adaptiveCardResponse?.body?.forEach { ComponentText(it) }
+        adaptiveCardResponse?.actions?.forEach { ComponentText(it) }
     }
 }
 
 @Composable
 fun ComponentText(component: Component) {
     when (component) {
+        is Component.ActionOpenUrl -> ActionOpenUrlText(component)
+        is Component.ActionShowCard -> ActionShowCardText(component)
         is Component.Column -> ColumnText(component)
         is Component.ColumnSet -> ColumnSetText(component)
         is Component.FactSet -> FactSetText(component)
         is Component.Image -> ImageText(component)
         is Component.TextBlock -> TextBlockText(component)
+    }
+}
+
+@Composable
+fun ActionOpenUrlText(component: Component.ActionOpenUrl) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.title?.let { Text(it) }
+        component.url?.let { Text(it) }
+        Line()
+    }
+}
+
+@Composable
+fun ActionShowCardText(component: Component.ActionShowCard) {
+    Column {
+        component.type?.let { Text(it.value) }
+        component.title?.let { Text(it) }
+        Line()
     }
 }
 

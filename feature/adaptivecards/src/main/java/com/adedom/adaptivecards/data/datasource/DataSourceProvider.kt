@@ -19,16 +19,18 @@ import retrofit2.create
 class DataSourceProvider {
 
     fun getMockyService(): MockyService {
+        val polymorphicJsonAdapter = PolymorphicJsonAdapterFactory
+            .of(Component::class.java, "type")
+            .withSubtype(Component.ActionOpenUrl::class.java, ComponentType.ACTION_OPEN_URL.value)
+            .withSubtype(Component.ActionShowCard::class.java, ComponentType.ACTION_SHOW_CARD.value)
+            .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
+            .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
+            .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
+            .withSubtype(Component.Image::class.java, ComponentType.IMAGE.value)
+            .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
+
         val moshi: Moshi = Moshi.Builder()
-            .add(
-                PolymorphicJsonAdapterFactory
-                    .of(Component::class.java, "type")
-                    .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
-                    .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
-                    .withSubtype(Component.FactSet::class.java, ComponentType.FACT_SET.value)
-                    .withSubtype(Component.Image::class.java, ComponentType.IMAGE.value)
-                    .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
-            )
+            .add(polymorphicJsonAdapter)
             .add(ComponentTypeAdapter)
             .add(ComponentSizeAdapter)
             .add(ComponentWeightAdapter)
