@@ -63,6 +63,7 @@ fun ComponentText(component: Component) {
         is Component.Cards -> CardsText(component)
         is Component.Button -> ButtonText(component)
         is Component.Badge -> BadgeText(component)
+        is Component.ActionOpenMore -> ActionOpenMoreText(component)
     }
 }
 
@@ -204,6 +205,15 @@ fun BannerText(component: Component.Banner) {
 fun TextText(component: Component.Text) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
+        component.text?.let { Text(it) }
+        component.size?.let { Text(it.value) }
+        component.color?.let { Text(it) }
+        component.weight?.let { Text(it.value) }
+        component.align?.let { Text(it.value) }
+        component.spacing?.let { Text(it.value) }
+        component.selectAction?.let { ComponentText(it) }
+        component.maxLines?.let { Text(it.toString()) }
         Line()
     }
 }
@@ -234,6 +244,14 @@ fun ButtonText(component: Component.Button) {
 
 @Composable
 fun BadgeText(component: Component.Badge) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun ActionOpenMoreText(component: Component.ActionOpenMore) {
     Column {
         component.type?.let { Text(it.value) }
         Line()

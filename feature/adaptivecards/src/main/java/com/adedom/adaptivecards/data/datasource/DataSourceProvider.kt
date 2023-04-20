@@ -2,6 +2,7 @@ package com.adedom.adaptivecards.data.datasource
 
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.data.models.adapter.ComponentAlignAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSpacingAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
@@ -38,6 +39,7 @@ class DataSourceProvider {
             .withSubtype(Component.Cards::class.java, ComponentType.CARDS.value)
             .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
             .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
+            .withSubtype(Component.ActionOpenMore::class.java, ComponentType.ACTION_OPEN_MORE.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(polymorphicJsonAdapter)
@@ -47,6 +49,7 @@ class DataSourceProvider {
             .add(ComponentWidthAdapter)
             .add(ComponentStyleAdapter)
             .add(ComponentSpacingAdapter)
+            .add(ComponentAlignAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 

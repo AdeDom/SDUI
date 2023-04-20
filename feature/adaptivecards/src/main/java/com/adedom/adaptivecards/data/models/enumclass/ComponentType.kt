@@ -18,4 +18,5 @@ enum class ComponentType(val value: String) {
     CARDS("Cards"),
     BUTTON("Button"),
     BADGE("Badge"),
+    ACTION_OPEN_MORE("Action.OpenMore"),
 }

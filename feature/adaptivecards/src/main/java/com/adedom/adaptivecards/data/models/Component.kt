@@ -1,5 +1,6 @@
 package com.adedom.adaptivecards.data.models
 
+import com.adedom.adaptivecards.data.models.enumclass.ComponentAlign
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSpacing
 import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
@@ -98,6 +99,15 @@ sealed interface Component {
 
     data class Text(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
+        @Json(name = "text") val text: String?,
+        @Json(name = "size") val size: ComponentSize?,
+        @Json(name = "color") val color: String?,
+        @Json(name = "weight") val weight: ComponentWeight?,
+        @Json(name = "align") val align: ComponentAlign?,
+        @Json(name = "spacing") val spacing: ComponentSpacing?,
+        @Json(name = "selectAction") val selectAction: Component?,
+        @Json(name = "maxLines") val maxLines: Int?,
     ) : Component
 
     data class Container(
@@ -113,6 +123,10 @@ sealed interface Component {
     ) : Component
 
     data class Badge(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class ActionOpenMore(
         @Json(name = "type") val type: ComponentType?,
     ) : Component
 }
