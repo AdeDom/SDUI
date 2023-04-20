@@ -157,5 +157,7 @@ sealed interface Component {
 
     data class LazyHorizontal(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "column") val column: ColumnData?,
+        @Json(name = "columns") val columns: List<Component> = emptyList(),
     ) : Component
 }

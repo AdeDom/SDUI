@@ -290,6 +290,8 @@ fun TextBadgeText(component: Component.TextBadge) {
 fun LazyHorizontalText(component: Component.LazyHorizontal) {
     Column {
         component.type?.let { Text(it.value) }
+        component.column?.let { Text(it.toString()) }
+        component.columns.forEach { ComponentText(it) }
         Line()
     }
 }
