@@ -2,6 +2,8 @@ package com.adedom.adaptivecards.data.datasource
 
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.data.models.adapter.ComponentAlignAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentIconAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSpacingAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
@@ -32,6 +34,15 @@ class DataSourceProvider {
             .withSubtype(Component.InputDate::class.java, ComponentType.INPUT_DATE.value)
             .withSubtype(Component.InputText::class.java, ComponentType.INPUT_TEXT.value)
             .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
+            .withSubtype(Component.Banner::class.java, ComponentType.BANNER.value)
+            .withSubtype(Component.Text::class.java, ComponentType.TEXT.value)
+            .withSubtype(Component.Container::class.java, ComponentType.CONTAINER.value)
+            .withSubtype(Component.Cards::class.java, ComponentType.CARDS.value)
+            .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
+            .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
+            .withSubtype(Component.ActionOpenMore::class.java, ComponentType.ACTION_OPEN_MORE.value)
+            .withSubtype(Component.TextBadge::class.java, ComponentType.TEXT_BADGE.value)
+            .withSubtype(Component.LazyHorizontal::class.java, ComponentType.LAZY_HORIZONTAL.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(polymorphicJsonAdapter)
@@ -41,6 +52,8 @@ class DataSourceProvider {
             .add(ComponentWidthAdapter)
             .add(ComponentStyleAdapter)
             .add(ComponentSpacingAdapter)
+            .add(ComponentAlignAdapter)
+            .add(ComponentIconAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 
