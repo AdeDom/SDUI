@@ -144,6 +144,7 @@ fun ImageText(component: Component.Image) {
         component.style?.let { Text(it.value) }
         component.url?.let { Text(it) }
         component.size?.let { Text(it.value) }
+        component.info?.let { Text(it.toString()) }
         Line()
     }
 }
@@ -185,6 +186,10 @@ fun TextBlockText(component: Component.TextBlock) {
 fun BannerText(component: Component.Banner) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
+        component.info?.let { Text(it.toString()) }
+        component.url?.let { Text(it) }
+        component.items.forEach { ComponentText(it) }
         Line()
     }
 }

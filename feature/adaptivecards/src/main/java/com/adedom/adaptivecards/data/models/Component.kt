@@ -6,6 +6,7 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
+import com.adedom.adaptivecards.data.models.sample.InfoData
 import com.squareup.moshi.Json
 
 sealed interface Component {
@@ -56,6 +57,7 @@ sealed interface Component {
         @Json(name = "style") val style: ComponentStyle?,
         @Json(name = "url") val url: String?,
         @Json(name = "size") val size: ComponentSize?,
+        @Json(name = "info") val info: InfoData?,
     ) : Component
 
     data class InputDate(
@@ -82,6 +84,10 @@ sealed interface Component {
 
     data class Banner(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
+        @Json(name = "info") val info: InfoData?,
+        @Json(name = "url") val url: String?,
+        @Json(name = "items") val items: List<Component> = emptyList(),
     ) : Component
 
     data class Text(
