@@ -25,7 +25,7 @@ sealed interface Component {
     data class ActionShowCard(
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
-        @Json(name = "card") val card: AdaptiveCard?,
+        @Json(name = "card") val card: Component?,
     ) : Component
 
     data class ActionSubmit(
