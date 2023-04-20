@@ -79,4 +79,24 @@ sealed interface Component {
         @Json(name = "isSubtle") val isSubtle: Boolean?,
         @Json(name = "wrap") val wrap: Boolean?,
     ) : Component
+
+    data class Banner(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class Text(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class Container(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class Cards(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class Button(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
 }

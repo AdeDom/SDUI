@@ -32,6 +32,11 @@ class DataSourceProvider {
             .withSubtype(Component.InputDate::class.java, ComponentType.INPUT_DATE.value)
             .withSubtype(Component.InputText::class.java, ComponentType.INPUT_TEXT.value)
             .withSubtype(Component.TextBlock::class.java, ComponentType.TEXT_BLOCK.value)
+            .withSubtype(Component.Banner::class.java, ComponentType.BANNER.value)
+            .withSubtype(Component.Text::class.java, ComponentType.TEXT.value)
+            .withSubtype(Component.Container::class.java, ComponentType.CONTAINER.value)
+            .withSubtype(Component.Cards::class.java, ComponentType.CARDS.value)
+            .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(polymorphicJsonAdapter)

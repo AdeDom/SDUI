@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
@@ -27,7 +29,11 @@ fun AdaptiveCardScreen(
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)
     }
 
-    AdaptiveCardContent(uiState.component)
+    LazyColumn {
+        items(uiState.components) {
+            ComponentText(it)
+        }
+    }
 }
 
 @Composable
@@ -51,6 +57,11 @@ fun ComponentText(component: Component) {
         is Component.InputDate -> InputDateText(component)
         is Component.InputText -> InputTextText(component)
         is Component.TextBlock -> TextBlockText(component)
+        is Component.Banner -> BannerText(component)
+        is Component.Text -> TextText(component)
+        is Component.Container -> ContainerText(component)
+        is Component.Cards -> CardsText(component)
+        is Component.Button -> ButtonText(component)
     }
 }
 
@@ -165,6 +176,47 @@ fun TextBlockText(component: Component.TextBlock) {
         component.text?.let { Text(it) }
         component.isSubtle?.let { Text(it.toString()) }
         component.wrap?.let { Text(it.toString()) }
+        Line()
+    }
+}
+
+
+@Composable
+fun BannerText(component: Component.Banner) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun TextText(component: Component.Text) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun ContainerText(component: Component.Container) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun CardsText(component: Component.Cards) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun ButtonText(component: Component.Button) {
+    Column {
+        component.type?.let { Text(it.value) }
         Line()
     }
 }
