@@ -113,8 +113,11 @@ fun AdaptiveCardText(component: Component.AdaptiveCard) {
 fun ColumnText(component: Component.Column) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
         component.items.forEach { ComponentText(it) }
         component.width?.let { Text(it.value) }
+        component.style?.let { Text(it.value) }
+        component.selectAction?.let { ComponentText(it) }
         Line()
     }
 }

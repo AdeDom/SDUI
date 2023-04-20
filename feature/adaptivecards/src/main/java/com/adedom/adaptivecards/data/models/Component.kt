@@ -42,8 +42,11 @@ sealed interface Component {
 
     data class Column(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
         @Json(name = "items") val items: List<Component> = emptyList(),
         @Json(name = "width") val width: ComponentWidth?,
+        @Json(name = "style") val style: ComponentStyle?,
+        @Json(name = "selectAction") val selectAction: Component?,
     ) : Component
 
     data class ColumnSet(

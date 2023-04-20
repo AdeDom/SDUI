@@ -7,4 +7,5 @@ enum class ComponentStyle(val value: String) {
     TOP10("top10"),
     CIRCLE("circle"),
     TOP_RIGHT("top-right"),
+    CARD("card"),
 }
