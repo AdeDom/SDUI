@@ -252,6 +252,8 @@ fun CardsText(component: Component.Cards) {
 fun ButtonText(component: Component.Button) {
     Column {
         component.type?.let { Text(it.value) }
+        component.icon?.let { Text(it.value) }
+        component.align?.let { Text(it.value) }
         Line()
     }
 }

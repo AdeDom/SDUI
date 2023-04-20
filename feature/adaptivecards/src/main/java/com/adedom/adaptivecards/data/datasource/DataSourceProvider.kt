@@ -3,6 +3,7 @@ package com.adedom.adaptivecards.data.datasource
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.data.models.adapter.ComponentAlignAdapter
+import com.adedom.adaptivecards.data.models.adapter.ComponentIconAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentSpacingAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
@@ -52,6 +53,7 @@ class DataSourceProvider {
             .add(ComponentStyleAdapter)
             .add(ComponentSpacingAdapter)
             .add(ComponentAlignAdapter)
+            .add(ComponentIconAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
 

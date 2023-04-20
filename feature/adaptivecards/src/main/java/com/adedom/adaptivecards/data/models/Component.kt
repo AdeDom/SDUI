@@ -1,6 +1,7 @@
 package com.adedom.adaptivecards.data.models
 
 import com.adedom.adaptivecards.data.models.enumclass.ComponentAlign
+import com.adedom.adaptivecards.data.models.enumclass.ComponentIcon
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSpacing
 import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
@@ -135,6 +136,8 @@ sealed interface Component {
 
     data class Button(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "icon") val icon: ComponentIcon?,
+        @Json(name = "align") val align: ComponentAlign?,
     ) : Component
 
     data class Badge(
