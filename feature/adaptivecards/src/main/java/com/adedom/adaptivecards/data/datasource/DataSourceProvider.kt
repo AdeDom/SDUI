@@ -37,6 +37,7 @@ class DataSourceProvider {
             .withSubtype(Component.Container::class.java, ComponentType.CONTAINER.value)
             .withSubtype(Component.Cards::class.java, ComponentType.CARDS.value)
             .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
+            .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(polymorphicJsonAdapter)

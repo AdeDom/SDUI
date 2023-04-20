@@ -17,4 +17,5 @@ enum class ComponentType(val value: String) {
     CONTAINER("Container"),
     CARDS("Cards"),
     BUTTON("Button"),
+    BADGE("Badge"),
 }

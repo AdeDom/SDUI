@@ -62,6 +62,7 @@ fun ComponentText(component: Component) {
         is Component.Container -> ContainerText(component)
         is Component.Cards -> CardsText(component)
         is Component.Button -> ButtonText(component)
+        is Component.Badge -> BadgeText(component)
     }
 }
 
@@ -145,6 +146,11 @@ fun ImageText(component: Component.Image) {
         component.url?.let { Text(it) }
         component.size?.let { Text(it.value) }
         component.info?.let { Text(it.toString()) }
+        component.ratio?.let { Text(it) }
+        component.column?.let { Text(it.toString()) }
+        component.overlays.forEach { ComponentText(it) }
+        component.items.forEach { ComponentText(it) }
+        component.images.forEach { Text(it) }
         Line()
     }
 }
@@ -220,6 +226,14 @@ fun CardsText(component: Component.Cards) {
 
 @Composable
 fun ButtonText(component: Component.Button) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun BadgeText(component: Component.Badge) {
     Column {
         component.type?.let { Text(it.value) }
         Line()
