@@ -267,6 +267,8 @@ fun BadgeText(component: Component.Badge) {
 fun ActionOpenMoreText(component: Component.ActionOpenMore) {
     Column {
         component.type?.let { Text(it.value) }
+        component.title?.let { Text(it) }
+        component.url?.let { Text(it) }
         Line()
     }
 }

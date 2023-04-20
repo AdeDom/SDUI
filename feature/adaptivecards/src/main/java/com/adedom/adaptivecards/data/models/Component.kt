@@ -142,6 +142,8 @@ sealed interface Component {
 
     data class ActionOpenMore(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "title") val title: String?,
+        @Json(name = "url") val url: String?,
     ) : Component
 
     data class TextBadge(
