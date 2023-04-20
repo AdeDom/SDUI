@@ -222,6 +222,8 @@ fun TextText(component: Component.Text) {
 fun ContainerText(component: Component.Container) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
+        component.items.forEach { ComponentText(it) }
         Line()
     }
 }

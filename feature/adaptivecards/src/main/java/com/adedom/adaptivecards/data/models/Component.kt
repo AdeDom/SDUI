@@ -113,6 +113,8 @@ sealed interface Component {
 
     data class Container(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
+        @Json(name = "items") val items: List<Component> = emptyList(),
     ) : Component
 
     data class Cards(
