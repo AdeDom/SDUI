@@ -65,6 +65,7 @@ fun ComponentText(component: Component) {
         is Component.Badge -> BadgeText(component)
         is Component.ActionOpenMore -> ActionOpenMoreText(component)
         is Component.TextBadge -> TextBadgeText(component)
+        is Component.LazyHorizontal -> LazyHorizontalText(component)
     }
 }
 
@@ -233,6 +234,13 @@ fun ContainerText(component: Component.Container) {
 fun CardsText(component: Component.Cards) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
+        component.background?.let { Text(it) }
+        component.size?.let { Text(it.value) }
+        component.column?.let { Text(it.toString()) }
+        component.spacing?.let { Text(it.value) }
+        component.page?.let { Text(it.toString()) }
+        component.items.forEach { ComponentText(it) }
         Line()
     }
 }
@@ -272,6 +280,14 @@ fun TextBadgeText(component: Component.TextBadge) {
         component.spacing?.let { Text(it.value) }
         component.color?.let { Text(it) }
         component.selectAction?.let { ComponentText(it) }
+        Line()
+    }
+}
+
+@Composable
+fun LazyHorizontalText(component: Component.LazyHorizontal) {
+    Column {
+        component.type?.let { Text(it.value) }
         Line()
     }
 }

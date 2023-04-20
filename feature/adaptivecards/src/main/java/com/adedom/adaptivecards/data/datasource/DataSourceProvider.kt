@@ -41,6 +41,7 @@ class DataSourceProvider {
             .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
             .withSubtype(Component.ActionOpenMore::class.java, ComponentType.ACTION_OPEN_MORE.value)
             .withSubtype(Component.TextBadge::class.java, ComponentType.TEXT_BADGE.value)
+            .withSubtype(Component.LazyHorizontal::class.java, ComponentType.LAZY_HORIZONTAL.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(polymorphicJsonAdapter)

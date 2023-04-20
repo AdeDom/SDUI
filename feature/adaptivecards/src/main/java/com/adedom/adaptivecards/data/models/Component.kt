@@ -7,9 +7,10 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
-import com.adedom.adaptivecards.data.models.sample.ImageColumnData
+import com.adedom.adaptivecards.data.models.sample.ColumnData
 import com.adedom.adaptivecards.data.models.sample.InfoData
 import com.adedom.adaptivecards.data.models.sample.MetaData
+import com.adedom.adaptivecards.data.models.sample.PageData
 import com.squareup.moshi.Json
 
 sealed interface Component {
@@ -62,7 +63,7 @@ sealed interface Component {
         @Json(name = "size") val size: ComponentSize?,
         @Json(name = "info") val info: InfoData?,
         @Json(name = "ratio") val ratio: String?,
-        @Json(name = "column") val column: ImageColumnData?,
+        @Json(name = "column") val column: ColumnData?,
         @Json(name = "overlays") val overlays: List<Component> = emptyList(),
         @Json(name = "items") val items: List<Component> = emptyList(),
         @Json(name = "images") val images: List<String> = emptyList(),
@@ -120,6 +121,13 @@ sealed interface Component {
 
     data class Cards(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
+        @Json(name = "background") val background: String?,
+        @Json(name = "size") val size: ComponentSize?,
+        @Json(name = "column") val column: ColumnData?,
+        @Json(name = "spacing") val spacing: ComponentSpacing?,
+        @Json(name = "page") val page: PageData?,
+        @Json(name = "items") val items: List<Component> = emptyList(),
     ) : Component
 
     data class Button(
@@ -143,5 +151,9 @@ sealed interface Component {
         @Json(name = "spacing") val spacing: ComponentSpacing?,
         @Json(name = "color") val color: String?,
         @Json(name = "selectAction") val selectAction: Component?,
+    ) : Component
+
+    data class LazyHorizontal(
+        @Json(name = "type") val type: ComponentType?,
     ) : Component
 }
