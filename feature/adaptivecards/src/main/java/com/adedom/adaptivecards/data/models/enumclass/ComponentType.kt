@@ -12,7 +12,7 @@ enum class ComponentType(val value: String) {
     INPUT_DATE("Input.Date"),
     INPUT_TEXT("Input.Text"),
     TEXT_BLOCK("TextBlock"),
-    BANNER("banner"),
+    BANNER("Banner"),
     TEXT("Text"),
     CONTAINER("Container"),
     CARDS("Cards"),

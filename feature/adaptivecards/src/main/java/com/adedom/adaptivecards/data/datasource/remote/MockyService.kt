@@ -9,6 +9,6 @@ interface MockyService {
     @GET("v3/ef51d555-4408-4ba9-9fc5-5bea349b1410")
     suspend fun getAdaptiveCardsDefault(): Component
 
-    @GET("v3/fe9cd8a7-950c-4d30-846c-0685a38ec101")
+    @GET("v3/30b70f78-1d93-4885-8734-a4ddc8169bcc")
     suspend fun getSampleAdaptive(): SampleAdaptiveResponse
 }
