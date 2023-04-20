@@ -1,5 +1,10 @@
 package com.adedom.adaptivecards.data.models
 
+import com.adedom.adaptivecards.data.models.datamodel.ColumnData
+import com.adedom.adaptivecards.data.models.datamodel.FactSetData
+import com.adedom.adaptivecards.data.models.datamodel.InfoData
+import com.adedom.adaptivecards.data.models.datamodel.MetaData
+import com.adedom.adaptivecards.data.models.datamodel.PageData
 import com.adedom.adaptivecards.data.models.enumclass.ComponentAlign
 import com.adedom.adaptivecards.data.models.enumclass.ComponentIcon
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
@@ -8,10 +13,6 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
-import com.adedom.adaptivecards.data.models.sample.ColumnData
-import com.adedom.adaptivecards.data.models.sample.InfoData
-import com.adedom.adaptivecards.data.models.sample.MetaData
-import com.adedom.adaptivecards.data.models.sample.PageData
 import com.squareup.moshi.Json
 
 sealed interface Component {

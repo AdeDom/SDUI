@@ -1,4 +1,4 @@
-package com.adedom.adaptivecards.data.models
+package com.adedom.adaptivecards.data.models.datamodel
 
 import com.squareup.moshi.Json
 
