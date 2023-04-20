@@ -4,5 +4,5 @@ import com.adedom.adaptivecards.data.models.Component
 
 interface AdaptiveCardRemoteDataSource {
 
-    suspend fun getAdaptiveCard(): Component
+    suspend fun getAdaptiveCardsDefault(): Component
 }

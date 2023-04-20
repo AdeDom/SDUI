@@ -7,7 +7,7 @@ class AdaptiveCardRemoteDataSourceImpl(
     private val dataSourceProvider: DataSourceProvider
 ) : AdaptiveCardRemoteDataSource {
 
-    override suspend fun getAdaptiveCard(): Component {
-        return dataSourceProvider.getMockyService().getMock()
+    override suspend fun getAdaptiveCardsDefault(): Component {
+        return dataSourceProvider.getMockyService().getAdaptiveCardsDefault()
     }
 }

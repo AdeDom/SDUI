@@ -21,7 +21,7 @@ class AdaptiveCardViewModel(
         viewModelScope.launch {
             when (event) {
                 AdaptiveCardUiEvent.Initial -> {
-                    val component = adaptiveCardRemoteDataSource.getAdaptiveCard()
+                    val component = adaptiveCardRemoteDataSource.getAdaptiveCardsDefault()
                     uiState = uiState.copy(component = component)
                 }
             }
