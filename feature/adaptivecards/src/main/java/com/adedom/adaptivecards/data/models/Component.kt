@@ -81,6 +81,7 @@ sealed interface Component {
 
     data class TextBlock(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "index") val index: Int?,
         @Json(name = "size") val size: ComponentSize?,
         @Json(name = "weight") val weight: ComponentWeight?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,

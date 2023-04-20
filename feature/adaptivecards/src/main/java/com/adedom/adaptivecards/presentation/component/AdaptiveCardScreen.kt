@@ -178,6 +178,7 @@ fun InputTextText(component: Component.InputText) {
 fun TextBlockText(component: Component.TextBlock) {
     Column {
         component.type?.let { Text(it.value) }
+        component.index?.let { Text(it.toString()) }
         component.size?.let { Text(it.value) }
         component.weight?.let { Text(it.value) }
         component.spacing?.let { Text(it.value) }
@@ -187,7 +188,6 @@ fun TextBlockText(component: Component.TextBlock) {
         Line()
     }
 }
-
 
 @Composable
 fun BannerText(component: Component.Banner) {
