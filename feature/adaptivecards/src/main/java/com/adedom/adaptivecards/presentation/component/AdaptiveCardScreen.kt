@@ -267,6 +267,11 @@ fun ActionOpenMoreText(component: Component.ActionOpenMore) {
 fun TextBadgeText(component: Component.TextBadge) {
     Column {
         component.type?.let { Text(it.value) }
+        component.text?.let { Text(it) }
+        component.meta?.let { Text(it.toString()) }
+        component.spacing?.let { Text(it.value) }
+        component.color?.let { Text(it) }
+        component.selectAction?.let { ComponentText(it) }
         Line()
     }
 }

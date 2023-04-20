@@ -9,6 +9,7 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
 import com.adedom.adaptivecards.data.models.sample.ImageColumnData
 import com.adedom.adaptivecards.data.models.sample.InfoData
+import com.adedom.adaptivecards.data.models.sample.MetaData
 import com.squareup.moshi.Json
 
 sealed interface Component {
@@ -137,5 +138,10 @@ sealed interface Component {
 
     data class TextBadge(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "text") val text: String?,
+        @Json(name = "meta") val meta: MetaData?,
+        @Json(name = "spacing") val spacing: ComponentSpacing?,
+        @Json(name = "color") val color: String?,
+        @Json(name = "selectAction") val selectAction: Component?,
     ) : Component
 }
