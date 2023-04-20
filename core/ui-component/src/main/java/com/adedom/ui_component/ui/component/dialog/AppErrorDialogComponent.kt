@@ -2,10 +2,10 @@ package com.adedom.ui_component.ui.component.dialog
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +17,7 @@ fun AppErrorDialogComponent(
 ) {
     AlertDialog(
         onDismissRequest = onClickOk,
-        buttons = {},
+        confirmButton = {},
         title = {
             Text(text = "Error")
         },
@@ -34,6 +34,6 @@ fun AppErrorDialogComponent(
             }
         },
         shape = MaterialTheme.shapes.large,
-        backgroundColor = MaterialTheme.colors.onBackground
+        containerColor = MaterialTheme.colorScheme.onBackground
     )
 }
