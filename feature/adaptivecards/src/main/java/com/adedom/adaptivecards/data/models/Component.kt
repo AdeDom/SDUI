@@ -127,9 +127,15 @@ sealed interface Component {
 
     data class Badge(
         @Json(name = "type") val type: ComponentType?,
+        @Json(name = "style") val style: ComponentStyle?,
+        @Json(name = "items") val items: List<Component> = emptyList(),
     ) : Component
 
     data class ActionOpenMore(
+        @Json(name = "type") val type: ComponentType?,
+    ) : Component
+
+    data class TextBadge(
         @Json(name = "type") val type: ComponentType?,
     ) : Component
 }

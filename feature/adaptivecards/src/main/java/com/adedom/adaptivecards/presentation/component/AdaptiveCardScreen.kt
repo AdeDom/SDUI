@@ -64,6 +64,7 @@ fun ComponentText(component: Component) {
         is Component.Button -> ButtonText(component)
         is Component.Badge -> BadgeText(component)
         is Component.ActionOpenMore -> ActionOpenMoreText(component)
+        is Component.TextBadge -> TextBadgeText(component)
     }
 }
 
@@ -248,12 +249,22 @@ fun ButtonText(component: Component.Button) {
 fun BadgeText(component: Component.Badge) {
     Column {
         component.type?.let { Text(it.value) }
+        component.style?.let { Text(it.value) }
+        component.items.forEach { ComponentText(it) }
         Line()
     }
 }
 
 @Composable
 fun ActionOpenMoreText(component: Component.ActionOpenMore) {
+    Column {
+        component.type?.let { Text(it.value) }
+        Line()
+    }
+}
+
+@Composable
+fun TextBadgeText(component: Component.TextBadge) {
     Column {
         component.type?.let { Text(it.value) }
         Line()

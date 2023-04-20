@@ -19,4 +19,5 @@ enum class ComponentType(val value: String) {
     BUTTON("Button"),
     BADGE("Badge"),
     ACTION_OPEN_MORE("Action.OpenMore"),
+    TEXT_BADGE("TextBadge"),
 }

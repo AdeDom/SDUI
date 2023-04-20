@@ -6,4 +6,5 @@ enum class ComponentStyle(val value: String) {
     BORDER_TOP("border-top"),
     TOP10("top10"),
     CIRCLE("circle"),
+    TOP_RIGHT("top-right"),
 }
