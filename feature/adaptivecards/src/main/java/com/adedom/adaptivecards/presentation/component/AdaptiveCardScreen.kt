@@ -37,7 +37,7 @@ fun UiComponentRender(component: Component) {
 //        is Component.ActionShowCard -> ActionShowCardText(component = component)
 //        is Component.ActionSubmit -> ActionSubmitText(component = component)
 //        is Component.AdaptiveCard -> AdaptiveCardText(component = component)
-//        is Component.Column -> ColumnText(component = component)
+        is Component.Column -> ColumnComponent(component = component)
 //        is Component.ColumnSet -> ColumnSetText(component = component)
 //        is Component.FactSet -> FactSetText(component = component)
         is Component.Image -> ImageComponent(component = component)
