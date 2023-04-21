@@ -4,6 +4,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
+import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 
 @Composable
 fun TextComponent(
@@ -13,6 +15,9 @@ fun TextComponent(
     component.text?.let {
         Text(
             text = it,
+            fontSize = (component.size ?: ComponentSize.MEDIUM).mapComponent(),
+            fontWeight = (component.weight ?: ComponentWeight.LIGHTER).mapComponent(),
+            textAlign = component.align?.mapComponent(),
             modifier = modifier,
         )
     }
