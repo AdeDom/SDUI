@@ -46,7 +46,7 @@ fun UiComponentRender(component: Component) {
         is Component.TextBlock -> TextBlockComponent(component = component)
         is Component.Banner -> BannerComponent(component = component)
         is Component.Text -> TextComponent(component = component)
-//        is Component.Container -> ContainerText(component = component)
+        is Component.Container -> ContainerComponent(component = component)
 //        is Component.Cards -> CardsText(component = component)
 //        is Component.Button -> ButtonText(component = component)
 //        is Component.Badge -> BadgeText(component = component)

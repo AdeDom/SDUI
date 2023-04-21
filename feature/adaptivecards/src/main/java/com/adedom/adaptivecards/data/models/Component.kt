@@ -110,7 +110,7 @@ sealed interface Component {
         @Json(name = "index") val index: Int?,
         @Json(name = "text") val text: String?,
         @Json(name = "size") val size: ComponentSize?,
-        @Json(name = "color") val color: String?,
+        @Json(name = "color") val color: String = "#000000",
         @Json(name = "weight") val weight: ComponentWeight?,
         @Json(name = "align") val align: ComponentAlign?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,
@@ -158,7 +158,7 @@ sealed interface Component {
         @Json(name = "text") val text: String?,
         @Json(name = "meta") val meta: MetaData?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,
-        @Json(name = "color") val color: String?,
+        @Json(name = "color") val color: String = "#000000",
         @Json(name = "selectAction") val selectAction: Component?,
     ) : Component
 
