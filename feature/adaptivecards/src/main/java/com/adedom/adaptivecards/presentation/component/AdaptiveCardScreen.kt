@@ -52,7 +52,7 @@ fun UiComponentRender(component: Component) {
 //        is Component.Badge -> BadgeText(component = component)
 //        is Component.ActionOpenMore -> ActionOpenMoreText(component = component)
 //        is Component.TextBadge -> TextBadgeText(component = component)
-//        is Component.LazyHorizontal -> LazyHorizontalText(component = component)
+        is Component.LazyHorizontal -> LazyHorizontalComponent(component = component)
         else -> {}
     }
 }
