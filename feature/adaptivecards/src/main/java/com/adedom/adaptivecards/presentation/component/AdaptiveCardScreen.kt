@@ -43,7 +43,7 @@ fun UiComponentRender(component: Component) {
 //        is Component.Image -> ImageText(component = component)
 //        is Component.InputDate -> InputDateText(component = component)
 //        is Component.InputText -> InputTextText(component = component)
-//        is Component.TextBlock -> TextBlockText(component = component)
+        is Component.TextBlock -> TextBlockComponent(component = component)
         is Component.Banner -> BannerComponent(component = component)
         is Component.Text -> TextComponent(component = component)
 //        is Component.Container -> ContainerText(component = component)
