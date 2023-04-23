@@ -13,8 +13,8 @@ fun ContainerComponent(
 ) {
     Box(modifier = modifier) {
         Column {
-            component.items.forEach {
-                UiComponentRender(it)
+            component.items.forEach { component ->
+                UiComponentRender(component = component)
             }
         }
     }

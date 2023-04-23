@@ -14,8 +14,8 @@ fun LazyHorizontalComponent(
 ) {
     Box(modifier = modifier) {
         LazyRow {
-            items(component.columns) {
-                UiComponentRender(component = it)
+            items(component.columns) { component ->
+                UiComponentRender(component = component)
             }
         }
     }

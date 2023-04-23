@@ -13,8 +13,8 @@ fun CardsComponent(
 ) {
     Card(modifier = modifier) {
         Column {
-            component.items.forEach {
-                UiComponentRender(component = it)
+            component.items.forEach { component ->
+                UiComponentRender(component = component)
             }
         }
     }

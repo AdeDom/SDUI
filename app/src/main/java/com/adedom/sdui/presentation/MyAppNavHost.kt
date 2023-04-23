@@ -1,7 +1,9 @@
 package com.adedom.sdui.presentation
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -19,6 +21,8 @@ fun MyAppNavHost(
     navController: NavHostController = rememberNavController(),
     startDestination: String = "adaptive-card"
 ) {
+    val context = LocalContext.current
+
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -26,7 +30,10 @@ fun MyAppNavHost(
     ) {
         composable("adaptive-card") {
             AdaptiveCardScreen(
-                viewModel = koinViewModel()
+                viewModel = koinViewModel(),
+                onClick = { component ->
+                    Toast.makeText(context, component.toString(), Toast.LENGTH_SHORT).show()
+                }
             )
         }
         composable("home") {
