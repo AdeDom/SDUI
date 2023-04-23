@@ -1,10 +1,6 @@
 package com.adedom.adaptivecards.presentation.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.adedom.adaptivecards.base.BaseViewModel
 import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSource
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
@@ -16,20 +12,19 @@ import kotlinx.coroutines.launch
 
 class AdaptiveCardViewModel(
     private val adaptiveCardRemoteDataSource: AdaptiveCardRemoteDataSource,
-) : ViewModel() {
-
-    var uiState by mutableStateOf(AdaptiveCardUiState())
-        private set
+) : BaseViewModel<AdaptiveCardUiEvent, AdaptiveCardUiState>(AdaptiveCardUiState()) {
 
     private val _onClick = Channel<Component>()
     val onClick: Flow<Component> = _onClick.receiveAsFlow()
 
-    fun onEvent(event: AdaptiveCardUiEvent) {
-        viewModelScope.launch {
+    override fun onEvent(event: AdaptiveCardUiEvent) {
+        launch {
             when (event) {
                 AdaptiveCardUiEvent.Initial -> {
                     val response = adaptiveCardRemoteDataSource.getSampleAdaptive()
-                    uiState = uiState.copy(components = response.body ?: emptyList())
+                    emit {
+                        copy(components = response.body ?: emptyList())
+                    }
                 }
 
                 is AdaptiveCardUiEvent.OnClick -> {
