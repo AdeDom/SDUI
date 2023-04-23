@@ -3,14 +3,10 @@ package com.adedom.sdui.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.adedom.adaptivecards.presentation.component.AdaptiveCardScreen
-import com.adedom.home.presentation.component.HomeScreen
-import com.adedom.movie.presentation.component.MovieScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -26,23 +22,11 @@ fun MyAppNavHost(
     ) {
         composable("adaptive-card") {
             AdaptiveCardScreen(
-                viewModel = koinViewModel()
-            )
-        }
-        composable("home") {
-            HomeScreen(
                 viewModel = koinViewModel(),
-                onNavigateToDetail = {
-                    navController.navigate("movie?key=$it")
+                onClick = { component ->
+                    navController.navigate("adaptive-card")
                 }
             )
-        }
-        composable(
-            route = "movie?key={key}",
-            arguments = listOf(navArgument("key") { type = NavType.StringType })
-        ) { backStackEntry ->
-            val text = backStackEntry.arguments?.getString("key")
-            MovieScreen(text = text.toString())
         }
     }
 }
