@@ -9,12 +9,13 @@ import com.adedom.adaptivecards.data.models.Component
 @Composable
 fun CardsComponent(
     modifier: Modifier = Modifier,
-    component: Component.Cards
+    component: Component.Cards,
+    onClick: (Component) -> Unit
 ) {
     Card(modifier = modifier) {
         Column {
             component.items.forEach { component ->
-                UiComponentRender(component = component)
+                UiComponentRender(component = component, onClick = onClick)
             }
         }
     }

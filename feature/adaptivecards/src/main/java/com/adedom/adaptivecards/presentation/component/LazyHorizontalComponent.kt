@@ -10,12 +10,13 @@ import com.adedom.adaptivecards.data.models.Component
 @Composable
 fun LazyHorizontalComponent(
     modifier: Modifier = Modifier,
-    component: Component.LazyHorizontal
+    component: Component.LazyHorizontal,
+    onClick: (Component) -> Unit
 ) {
     Box(modifier = modifier) {
         LazyRow {
             items(component.columns) { component ->
-                UiComponentRender(component = component)
+                UiComponentRender(component = component, onClick = onClick)
             }
         }
     }
