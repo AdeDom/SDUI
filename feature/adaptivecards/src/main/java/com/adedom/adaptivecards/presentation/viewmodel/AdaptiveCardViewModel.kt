@@ -21,9 +21,15 @@ class AdaptiveCardViewModel(
         launch {
             when (event) {
                 AdaptiveCardUiEvent.Initial -> {
+                    emit {
+                        copy(isLoading = true)
+                    }
                     val components = getSampleAdaptiveUseCase.execute()
                     emit {
-                        copy(components = components)
+                        copy(
+                            components = components,
+                            isLoading = false
+                        )
                     }
                 }
 

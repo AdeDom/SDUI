@@ -1,21 +1,25 @@
 package com.adedom.adaptivecards.presentation.component
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
+import com.adedom.adaptivecards.presentation.state.AdaptiveCardUiState
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
 
 @Composable
 fun AdaptiveCardScreen(
+    modifier: Modifier = Modifier,
     viewModel: AdaptiveCardViewModel,
     onClick: (Component) -> Unit
 ) {
-    val uiState = viewModel.uiState
-
     LaunchedEffect(key1 = Unit) {
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)
 
@@ -23,49 +27,34 @@ fun AdaptiveCardScreen(
     }
 
     AdaptiveCardContent(
-        components = uiState.components,
-        onClick = { component ->
-            viewModel.onEvent(AdaptiveCardUiEvent.OnClick(component))
-        }
+        modifier = modifier,
+        state = viewModel.uiState,
+        onEvent = viewModel::onEvent,
     )
 }
 
 @Composable
-fun AdaptiveCardContent(components: List<Component>, onClick: (Component) -> Unit) {
-    LazyColumn {
-        items(components) { component ->
-            UiComponentRender(component = component, onClick = onClick)
-        }
-    }
-}
-
-@Composable
-fun UiComponentRender(
+fun AdaptiveCardContent(
     modifier: Modifier = Modifier,
-    component: Component,
-    onClick: (Component) -> Unit
+    state: AdaptiveCardUiState,
+    onEvent: (AdaptiveCardUiEvent) -> Unit,
 ) {
-    when (component) {
-//        is Component.ActionOpenUrl -> ActionOpenUrlText(component = component)
-//        is Component.ActionShowCard -> ActionShowCardText(component = component)
-//        is Component.ActionSubmit -> ActionSubmitText(component = component)
-//        is Component.AdaptiveCard -> AdaptiveCardText(component = component)
-        is Component.Column -> ColumnComponent(modifier, component, onClick)
-//        is Component.ColumnSet -> ColumnSetText(component = component)
-//        is Component.FactSet -> FactSetText(component = component)
-        is Component.Image -> ImageComponent(modifier, component)
-//        is Component.InputDate -> InputDateText(component = component)
-//        is Component.InputText -> InputTextText(component = component)
-        is Component.TextBlock -> TextBlockComponent(modifier, component)
-        is Component.Banner -> BannerComponent(modifier, component)
-        is Component.Text -> TextComponent(modifier, component, onClick)
-        is Component.Container -> ContainerComponent(modifier, component, onClick)
-        is Component.Cards -> CardsComponent(modifier, component, onClick)
-//        is Component.Button -> ButtonText(component = component)
-//        is Component.Badge -> BadgeText(component = component)
-//        is Component.ActionOpenMore -> ActionOpenMoreText(component = component)
-//        is Component.TextBadge -> TextBadgeText(component = component)
-        is Component.LazyHorizontal -> LazyHorizontalComponent(modifier, component, onClick)
-        else -> {}
+    Box(modifier = modifier) {
+        if (state.isLoading) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            }
+        }
+
+        LazyColumn {
+            items(state.components) { component ->
+                UiComponentRender(
+                    component = component,
+                    onClick = {
+                        onEvent(AdaptiveCardUiEvent.OnClick(component))
+                    }
+                )
+            }
+        }
     }
 }
