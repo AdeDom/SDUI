@@ -21,11 +21,8 @@ import retrofit2.create
 class DataSourceProvider {
 
     fun getMockyService(): MockyService {
-        val polymorphicJsonAdapter = PolymorphicJsonAdapterFactory
+        val componentAdapter = PolymorphicJsonAdapterFactory
             .of(Component::class.java, "type")
-            .withSubtype(Component.ActionOpenUrl::class.java, ComponentType.ACTION_OPEN_URL.value)
-            .withSubtype(Component.ActionShowCard::class.java, ComponentType.ACTION_SHOW_CARD.value)
-            .withSubtype(Component.ActionSubmit::class.java, ComponentType.ACTION_SUBMIT.value)
             .withSubtype(Component.AdaptiveCard::class.java, ComponentType.ADAPTIVE_CARD.value)
             .withSubtype(Component.Column::class.java, ComponentType.COLUMN.value)
             .withSubtype(Component.ColumnSet::class.java, ComponentType.COLUMN_SET.value)
@@ -40,12 +37,31 @@ class DataSourceProvider {
             .withSubtype(Component.Cards::class.java, ComponentType.CARDS.value)
             .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
             .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
-            .withSubtype(Component.ActionOpenMore::class.java, ComponentType.ACTION_OPEN_MORE.value)
             .withSubtype(Component.TextBadge::class.java, ComponentType.TEXT_BADGE.value)
             .withSubtype(Component.LazyHorizontal::class.java, ComponentType.LAZY_HORIZONTAL.value)
 
+        val actionAdapter = PolymorphicJsonAdapterFactory
+            .of(Component.Action::class.java, "type")
+            .withSubtype(
+                Component.Action.OpenUrl::class.java,
+                ComponentType.ACTION_OPEN_URL.value
+            )
+            .withSubtype(
+                Component.Action.ShowCard::class.java,
+                ComponentType.ACTION_SHOW_CARD.value
+            )
+            .withSubtype(
+                Component.Action.Submit::class.java,
+                ComponentType.ACTION_SUBMIT.value
+            )
+            .withSubtype(
+                Component.Action.OpenMore::class.java,
+                ComponentType.ACTION_OPEN_MORE.value
+            )
+
         val moshi: Moshi = Moshi.Builder()
-            .add(polymorphicJsonAdapter)
+            .add(componentAdapter)
+            .add(actionAdapter)
             .add(ComponentTypeAdapter)
             .add(ComponentSizeAdapter)
             .add(ComponentWeightAdapter)

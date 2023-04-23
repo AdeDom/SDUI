@@ -4,6 +4,7 @@ enum class ComponentType(val value: String) {
     ACTION_OPEN_URL("Action.OpenUrl"),
     ACTION_SHOW_CARD("Action.ShowCard"),
     ACTION_SUBMIT("Action.Submit"),
+    ACTION_OPEN_MORE("Action.OpenMore"),
     ADAPTIVE_CARD("AdaptiveCard"),
     COLUMN("Column"),
     COLUMN_SET("ColumnSet"),
@@ -18,7 +19,6 @@ enum class ComponentType(val value: String) {
     CARDS("Cards"),
     BUTTON("Button"),
     BADGE("Badge"),
-    ACTION_OPEN_MORE("Action.OpenMore"),
     TEXT_BADGE("TextBadge"),
     LAZY_HORIZONTAL("LazyHorizontal"),
 }

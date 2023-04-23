@@ -17,22 +17,31 @@ import com.squareup.moshi.Json
 
 sealed interface Component {
 
-    data class ActionOpenUrl(
-        @Json(name = "type") val type: ComponentType?,
-        @Json(name = "title") val title: String?,
-        @Json(name = "url") val url: String?,
-    ) : Component
+    sealed interface Action {
 
-    data class ActionShowCard(
-        @Json(name = "type") val type: ComponentType?,
-        @Json(name = "title") val title: String?,
-        @Json(name = "card") val card: Component?,
-    ) : Component
+        data class OpenUrl(
+            @Json(name = "type") val type: ComponentType?,
+            @Json(name = "title") val title: String?,
+            @Json(name = "url") val url: String?,
+        ) : Action
 
-    data class ActionSubmit(
-        @Json(name = "type") val type: ComponentType?,
-        @Json(name = "title") val title: String?,
-    ) : Component
+        data class ShowCard(
+            @Json(name = "type") val type: ComponentType?,
+            @Json(name = "title") val title: String?,
+            @Json(name = "card") val card: Component?,
+        ) : Action
+
+        data class Submit(
+            @Json(name = "type") val type: ComponentType?,
+            @Json(name = "title") val title: String?,
+        ) : Action
+
+        data class OpenMore(
+            @Json(name = "type") val type: ComponentType?,
+            @Json(name = "title") val title: String?,
+            @Json(name = "url") val url: String?,
+        ) : Action
+    }
 
     data class AdaptiveCard(
         @Json(name = "type") val type: ComponentType?,
@@ -48,7 +57,7 @@ sealed interface Component {
         @Json(name = "items") val items: List<Component> = emptyList(),
         @Json(name = "width") val width: ComponentWidth?,
         @Json(name = "style") val style: ComponentStyle?,
-        @Json(name = "selectAction") val selectAction: Component?,
+        @Json(name = "selectAction") val selectAction: Action?,
     ) : Component
 
     data class ColumnSet(
@@ -114,7 +123,7 @@ sealed interface Component {
         @Json(name = "weight") val weight: ComponentWeight?,
         @Json(name = "align") val align: ComponentAlign?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,
-        @Json(name = "selectAction") val selectAction: Component?,
+        @Json(name = "selectAction") val selectAction: Action?,
         @Json(name = "maxLines") val maxLines: Int?,
     ) : Component
 
@@ -147,19 +156,13 @@ sealed interface Component {
         @Json(name = "items") val items: List<Component> = emptyList(),
     ) : Component
 
-    data class ActionOpenMore(
-        @Json(name = "type") val type: ComponentType?,
-        @Json(name = "title") val title: String?,
-        @Json(name = "url") val url: String?,
-    ) : Component
-
     data class TextBadge(
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "text") val text: String?,
         @Json(name = "meta") val meta: MetaData?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,
         @Json(name = "color") val color: String = "#000000",
-        @Json(name = "selectAction") val selectAction: Component?,
+        @Json(name = "selectAction") val selectAction: Action?,
     ) : Component
 
     data class LazyHorizontal(

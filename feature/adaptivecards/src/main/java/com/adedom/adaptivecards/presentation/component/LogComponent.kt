@@ -15,9 +15,6 @@ import com.adedom.adaptivecards.data.models.Component
 @Composable
 fun ComponentText(component: Component) {
     when (component) {
-        is Component.ActionOpenUrl -> ActionOpenUrlText(component = component)
-        is Component.ActionShowCard -> ActionShowCardText(component = component)
-        is Component.ActionSubmit -> ActionSubmitText(component = component)
         is Component.AdaptiveCard -> AdaptiveCardText(component = component)
         is Component.Column -> ColumnText(component = component)
         is Component.ColumnSet -> ColumnSetText(component = component)
@@ -32,37 +29,56 @@ fun ComponentText(component: Component) {
         is Component.Cards -> CardsText(component = component)
         is Component.Button -> ButtonText(component = component)
         is Component.Badge -> BadgeText(component = component)
-        is Component.ActionOpenMore -> ActionOpenMoreText(component = component)
         is Component.TextBadge -> TextBadgeText(component = component)
         is Component.LazyHorizontal -> LazyHorizontalText(component = component)
     }
 }
 
 @Composable
-fun ActionOpenUrlText(modifier: Modifier = Modifier, component: Component.ActionOpenUrl) {
+fun ActionText(action: Component.Action) {
+    when (action) {
+        is Component.Action.OpenUrl -> ActionOpenUrlText(action = action)
+        is Component.Action.ShowCard -> ActionShowCardText(action = action)
+        is Component.Action.Submit -> ActionSubmitText(action = action)
+        is Component.Action.OpenMore -> ActionOpenMoreText(action = action)
+    }
+}
+
+@Composable
+fun ActionOpenUrlText(modifier: Modifier = Modifier, action: Component.Action.OpenUrl) {
     Column(modifier = modifier) {
-        component.type?.let { Text(it.value) }
-        component.title?.let { Text(it) }
-        component.url?.let { Text(it) }
+        action.type?.let { Text(it.value) }
+        action.title?.let { Text(it) }
+        action.url?.let { Text(it) }
         Line()
     }
 }
 
 @Composable
-fun ActionShowCardText(modifier: Modifier = Modifier, component: Component.ActionShowCard) {
+fun ActionShowCardText(modifier: Modifier = Modifier, action: Component.Action.ShowCard) {
     Column(modifier = modifier) {
-        component.type?.let { Text(it.value) }
-        component.title?.let { Text(it) }
-        component.card?.let { ComponentText(component = it) }
+        action.type?.let { Text(it.value) }
+        action.title?.let { Text(it) }
+        action.card?.let { ComponentText(component = it) }
         Line()
     }
 }
 
 @Composable
-fun ActionSubmitText(modifier: Modifier = Modifier, component: Component.ActionSubmit) {
+fun ActionSubmitText(modifier: Modifier = Modifier, action: Component.Action.Submit) {
     Column(modifier = modifier) {
-        component.type?.let { Text(it.value) }
-        component.title?.let { Text(it) }
+        action.type?.let { Text(it.value) }
+        action.title?.let { Text(it) }
+    }
+}
+
+@Composable
+fun ActionOpenMoreText(modifier: Modifier = Modifier, action: Component.Action.OpenMore) {
+    Column(modifier = modifier) {
+        action.type?.let { Text(it.value) }
+        action.title?.let { Text(it) }
+        action.url?.let { Text(it) }
+        Line()
     }
 }
 
@@ -86,7 +102,7 @@ fun ColumnText(modifier: Modifier = Modifier, component: Component.Column) {
         component.items.forEach { ComponentText(component = it) }
         component.width?.let { Text(it.value) }
         component.style?.let { Text(it.value) }
-        component.selectAction?.let { ComponentText(component = it) }
+        component.selectAction?.let { ActionText(action = it) }
         Line()
     }
 }
@@ -182,11 +198,11 @@ fun TextText(modifier: Modifier = Modifier, component: Component.Text) {
         component.index?.let { Text(it.toString()) }
         component.text?.let { Text(it) }
         component.size?.let { Text(it.value) }
-        component.color?.let { Text(it) }
+        Text(component.color)
         component.weight?.let { Text(it.value) }
         component.align?.let { Text(it.value) }
         component.spacing?.let { Text(it.value) }
-        component.selectAction?.let { ComponentText(component = it) }
+        component.selectAction?.let { ActionText(action = it) }
         component.maxLines?.let { Text(it.toString()) }
         Line()
     }
@@ -238,24 +254,14 @@ fun BadgeText(modifier: Modifier = Modifier, component: Component.Badge) {
 }
 
 @Composable
-fun ActionOpenMoreText(modifier: Modifier = Modifier, component: Component.ActionOpenMore) {
-    Column(modifier = modifier) {
-        component.type?.let { Text(it.value) }
-        component.title?.let { Text(it) }
-        component.url?.let { Text(it) }
-        Line()
-    }
-}
-
-@Composable
 fun TextBadgeText(modifier: Modifier = Modifier, component: Component.TextBadge) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
         component.text?.let { Text(it) }
         component.meta?.let { Text(it.toString()) }
         component.spacing?.let { Text(it.value) }
-        component.color?.let { Text(it) }
-        component.selectAction?.let { ComponentText(component = it) }
+        Text(component.color)
+        component.selectAction?.let { ActionText(action = it) }
         Line()
     }
 }
