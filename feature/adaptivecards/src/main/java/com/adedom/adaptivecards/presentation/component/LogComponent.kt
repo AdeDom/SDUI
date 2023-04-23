@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 
 @Composable
@@ -35,17 +36,17 @@ fun ComponentText(component: Component) {
 }
 
 @Composable
-fun ActionText(action: Component.Action) {
+fun ActionText(action: Action) {
     when (action) {
-        is Component.Action.OpenUrl -> ActionOpenUrlText(action = action)
-        is Component.Action.ShowCard -> ActionShowCardText(action = action)
-        is Component.Action.Submit -> ActionSubmitText(action = action)
-        is Component.Action.OpenMore -> ActionOpenMoreText(action = action)
+        is Action.OpenUrl -> ActionOpenUrlText(action = action)
+        is Action.ShowCard -> ActionShowCardText(action = action)
+        is Action.Submit -> ActionSubmitText(action = action)
+        is Action.OpenMore -> ActionOpenMoreText(action = action)
     }
 }
 
 @Composable
-fun ActionOpenUrlText(modifier: Modifier = Modifier, action: Component.Action.OpenUrl) {
+fun ActionOpenUrlText(modifier: Modifier = Modifier, action: Action.OpenUrl) {
     Column(modifier = modifier) {
         action.type?.let { Text(it.value) }
         action.title?.let { Text(it) }
@@ -55,7 +56,7 @@ fun ActionOpenUrlText(modifier: Modifier = Modifier, action: Component.Action.Op
 }
 
 @Composable
-fun ActionShowCardText(modifier: Modifier = Modifier, action: Component.Action.ShowCard) {
+fun ActionShowCardText(modifier: Modifier = Modifier, action: Action.ShowCard) {
     Column(modifier = modifier) {
         action.type?.let { Text(it.value) }
         action.title?.let { Text(it) }
@@ -65,7 +66,7 @@ fun ActionShowCardText(modifier: Modifier = Modifier, action: Component.Action.S
 }
 
 @Composable
-fun ActionSubmitText(modifier: Modifier = Modifier, action: Component.Action.Submit) {
+fun ActionSubmitText(modifier: Modifier = Modifier, action: Action.Submit) {
     Column(modifier = modifier) {
         action.type?.let { Text(it.value) }
         action.title?.let { Text(it) }
@@ -73,7 +74,7 @@ fun ActionSubmitText(modifier: Modifier = Modifier, action: Component.Action.Sub
 }
 
 @Composable
-fun ActionOpenMoreText(modifier: Modifier = Modifier, action: Component.Action.OpenMore) {
+fun ActionOpenMoreText(modifier: Modifier = Modifier, action: Action.OpenMore) {
     Column(modifier = modifier) {
         action.type?.let { Text(it.value) }
         action.title?.let { Text(it) }

@@ -1,6 +1,7 @@
 package com.adedom.adaptivecards.data.datasource
 
 import com.adedom.adaptivecards.data.datasource.remote.MockyService
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.data.models.adapter.ComponentAlignAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentIconAdapter
@@ -41,23 +42,11 @@ class DataSourceProvider {
             .withSubtype(Component.LazyHorizontal::class.java, ComponentType.LAZY_HORIZONTAL.value)
 
         val actionAdapter = PolymorphicJsonAdapterFactory
-            .of(Component.Action::class.java, "type")
-            .withSubtype(
-                Component.Action.OpenUrl::class.java,
-                ComponentType.ACTION_OPEN_URL.value
-            )
-            .withSubtype(
-                Component.Action.ShowCard::class.java,
-                ComponentType.ACTION_SHOW_CARD.value
-            )
-            .withSubtype(
-                Component.Action.Submit::class.java,
-                ComponentType.ACTION_SUBMIT.value
-            )
-            .withSubtype(
-                Component.Action.OpenMore::class.java,
-                ComponentType.ACTION_OPEN_MORE.value
-            )
+            .of(Action::class.java, "type")
+            .withSubtype(Action.OpenUrl::class.java, ComponentType.ACTION_OPEN_URL.value)
+            .withSubtype(Action.ShowCard::class.java, ComponentType.ACTION_SHOW_CARD.value)
+            .withSubtype(Action.Submit::class.java, ComponentType.ACTION_SUBMIT.value)
+            .withSubtype(Action.OpenMore::class.java, ComponentType.ACTION_OPEN_MORE.value)
 
         val moshi: Moshi = Moshi.Builder()
             .add(componentAdapter)

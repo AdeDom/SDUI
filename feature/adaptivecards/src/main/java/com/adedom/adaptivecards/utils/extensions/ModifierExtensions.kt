@@ -3,11 +3,12 @@ package com.adedom.adaptivecards.utils.extensions
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 
 fun Modifier.clickable(
     component: Component,
-    action: Component.Action?,
+    action: Action?,
     enabled: Boolean = true,
     onClickLabel: String? = null,
     role: Role? = null,
