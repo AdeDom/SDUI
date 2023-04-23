@@ -1,8 +1,8 @@
 package com.adedom.adaptivecards.presentation.viewmodel
 
 import com.adedom.adaptivecards.base.BaseViewModel
-import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSource
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.domain.usecase.GetSampleAdaptiveUseCase
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
 import com.adedom.adaptivecards.presentation.state.AdaptiveCardUiState
 import kotlinx.coroutines.channels.Channel
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class AdaptiveCardViewModel(
-    private val adaptiveCardRemoteDataSource: AdaptiveCardRemoteDataSource,
+    private val getSampleAdaptiveUseCase: GetSampleAdaptiveUseCase,
 ) : BaseViewModel<AdaptiveCardUiEvent, AdaptiveCardUiState>(AdaptiveCardUiState()) {
 
     private val _onClick = Channel<Component>()
@@ -21,9 +21,9 @@ class AdaptiveCardViewModel(
         launch {
             when (event) {
                 AdaptiveCardUiEvent.Initial -> {
-                    val response = adaptiveCardRemoteDataSource.getSampleAdaptive()
+                    val components = getSampleAdaptiveUseCase.execute()
                     emit {
-                        copy(components = response.body ?: emptyList())
+                        copy(components = components)
                     }
                 }
 
