@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.event.AdaptiveCardUiEvent
 import com.adedom.adaptivecards.presentation.state.AdaptiveCardUiState
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
@@ -18,7 +17,7 @@ import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
 fun AdaptiveCardScreen(
     modifier: Modifier = Modifier,
     viewModel: AdaptiveCardViewModel,
-    onClick: (Component) -> Unit
+    onClick: (Unit) -> Unit
 ) {
     LaunchedEffect(key1 = Unit) {
         viewModel.onEvent(AdaptiveCardUiEvent.Initial)

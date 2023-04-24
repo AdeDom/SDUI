@@ -7,25 +7,24 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.adedom.adaptivecards.presentation.component.AdaptiveCardScreen
-import com.adedom.adaptivecards.utils.extensions.toJson
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MyAppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "sdui"
+    startDestination: String = "main"
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {
-        composable("sdui") {
+        composable("main") {
             AdaptiveCardScreen(
                 viewModel = koinViewModel(),
-                onClick = { component ->
-                    navController.navigate("sdui?component=${component.toJson()}")
+                onClick = {
+                    navController.navigate("main")
                 }
             )
         }
