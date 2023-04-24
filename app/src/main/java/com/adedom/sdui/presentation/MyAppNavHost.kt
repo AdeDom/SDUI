@@ -13,18 +13,18 @@ import org.koin.androidx.compose.koinViewModel
 fun MyAppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "adaptive-card"
+    startDestination: String = "main"
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {
-        composable("adaptive-card") {
+        composable("main") {
             AdaptiveCardScreen(
                 viewModel = koinViewModel(),
-                onClick = { component ->
-                    navController.navigate("adaptive-card")
+                onClick = {
+                    navController.navigate("main")
                 }
             )
         }
