@@ -1,5 +1,6 @@
 package com.adedom.adaptivecards.presentation.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.adedom.adaptivecards.base.BaseViewModel
 import com.adedom.adaptivecards.domain.usecase.GetSampleAdaptiveUseCase
 import com.adedom.adaptivecards.domain.usecase.PutComponentArgumentUseCase
@@ -19,7 +20,7 @@ class AdaptiveCardViewModel(
     val onClick: Flow<Unit> = _onClick.receiveAsFlow()
 
     override fun onEvent(event: AdaptiveCardUiEvent) {
-        launch {
+        viewModelScope.launch {
             when (event) {
                 AdaptiveCardUiEvent.Initial -> {
                     emit {
