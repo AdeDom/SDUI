@@ -16,7 +16,7 @@ class AdaptiveCardRepositoryImpl(
         }
     }
 
-    override suspend fun getSampleAdaptive(): List<Component> {
+    override suspend fun getSampleAdaptive(id: Int?): List<Component> {
         return withContext(ioDispatcher) {
             adaptiveCardRemoteDataSource.getSampleAdaptive().body ?: emptyList()
         }

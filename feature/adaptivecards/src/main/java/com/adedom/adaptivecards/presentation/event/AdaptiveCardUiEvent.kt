@@ -4,7 +4,9 @@ import com.adedom.adaptivecards.data.models.Action
 
 sealed interface AdaptiveCardUiEvent {
 
-    object Initial : AdaptiveCardUiEvent
+    data class Initial(
+        val id: Int?
+    ) : AdaptiveCardUiEvent
 
     data class OnClick(
         val action: Action?

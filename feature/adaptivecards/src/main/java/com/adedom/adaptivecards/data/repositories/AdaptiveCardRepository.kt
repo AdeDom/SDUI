@@ -6,6 +6,6 @@ interface AdaptiveCardRepository {
 
     suspend fun getAdaptiveCardsDefault(): Component
 
-    suspend fun getSampleAdaptive(): List<Component>
+    suspend fun getSampleAdaptive(id: Int?): List<Component>
 
 }
