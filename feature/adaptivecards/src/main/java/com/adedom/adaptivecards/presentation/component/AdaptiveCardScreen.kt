@@ -49,8 +49,8 @@ fun AdaptiveCardContent(
             items(state.components) { component ->
                 UiComponentRender(
                     component = component,
-                    onClick = {
-                        onEvent(AdaptiveCardUiEvent.OnClick(component))
+                    onClick = { action ->
+                        onEvent(AdaptiveCardUiEvent.OnClick(action))
                     }
                 )
             }

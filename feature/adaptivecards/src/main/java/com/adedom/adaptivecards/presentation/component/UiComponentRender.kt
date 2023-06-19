@@ -2,13 +2,14 @@ package com.adedom.adaptivecards.presentation.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 
 @Composable
 fun UiComponentRender(
     modifier: Modifier = Modifier,
     component: Component,
-    onClick: (Component) -> Unit
+    onClick: (Action) -> Unit
 ) {
     when (component) {
 //        is Component.ActionOpenUrl -> ActionOpenUrlText(component = component)
