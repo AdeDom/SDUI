@@ -8,7 +8,4 @@ interface AdaptiveCardRepository {
 
     suspend fun getSampleAdaptive(): List<Component>
 
-    fun putComponentArgument(component: Component)
-
-    fun getComponentArgument(): Component?
 }

@@ -10,8 +10,6 @@ class AdaptiveCardRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher
 ) : AdaptiveCardRepository {
 
-    var component: Component? = null
-
     override suspend fun getAdaptiveCardsDefault(): Component {
         return withContext(ioDispatcher) {
             adaptiveCardRemoteDataSource.getAdaptiveCardsDefault()
@@ -24,11 +22,4 @@ class AdaptiveCardRepositoryImpl(
         }
     }
 
-    override fun putComponentArgument(component: Component) {
-        this.component = component
-    }
-
-    override fun getComponentArgument(): Component? {
-        return component
-    }
 }

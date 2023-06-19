@@ -5,9 +5,7 @@ import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSou
 import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSourceImpl
 import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepository
 import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepositoryImpl
-import com.adedom.adaptivecards.domain.usecase.GetComponentArgumentUseCase
 import com.adedom.adaptivecards.domain.usecase.GetSampleAdaptiveUseCase
-import com.adedom.adaptivecards.domain.usecase.PutComponentArgumentUseCase
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -29,8 +27,6 @@ val appModule = module {
 
     // domain
     factoryOf(::GetSampleAdaptiveUseCase)
-    factoryOf(::PutComponentArgumentUseCase)
-    factoryOf(::GetComponentArgumentUseCase)
 
     // presentation
     viewModelOf(::AdaptiveCardViewModel)
