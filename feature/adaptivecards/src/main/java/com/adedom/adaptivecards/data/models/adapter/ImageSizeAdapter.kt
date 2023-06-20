@@ -1,17 +1,17 @@
 package com.adedom.adaptivecards.data.models.adapter
 
-import com.adedom.adaptivecards.data.models.enumclass.ImageSize
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
+import io.adaptivecards.objectmodel.ImageSize
 
 object ImageSizeAdapter {
     @ToJson
     fun toJson(value: ImageSize): String {
-        return value.value
+        return value.name
     }
 
     @FromJson
     fun fromJson(value: String): ImageSize? {
-        return ImageSize.values().firstOrNull { it.value == value }
+        return ImageSize.values().firstOrNull { it.name.lowercase() == value }
     }
 }

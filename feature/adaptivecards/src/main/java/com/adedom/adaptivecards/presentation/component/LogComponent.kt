@@ -137,7 +137,7 @@ fun ImageText(modifier: Modifier = Modifier, component: Component.Image) {
         component.type?.let { Text(it.value) }
 //        component.style?.let { Text(it.value) }
         component.url?.let { Text(it) }
-        component.size?.let { Text(it.value) }
+        component.size?.let { Text(it.name) }
 //        component.info?.let { Text(it.toString()) }
 //        component.ratio?.let { Text(it) }
 //        component.column?.let { Text(it.toString()) }

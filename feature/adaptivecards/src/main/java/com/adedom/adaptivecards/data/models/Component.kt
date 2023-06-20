@@ -12,8 +12,8 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentSpacing
 import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
-import com.adedom.adaptivecards.data.models.enumclass.ImageSize
 import com.squareup.moshi.Json
+import io.adaptivecards.objectmodel.ImageSize
 
 sealed class Component(
     open val selectAction: Action?

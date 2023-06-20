@@ -2,14 +2,7 @@ package com.adedom.adaptivecards.utils.moshi
 
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
-import com.adedom.adaptivecards.data.models.adapter.ComponentAlignAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentIconAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentSizeAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentSpacingAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentWeightAdapter
-import com.adedom.adaptivecards.data.models.adapter.ComponentWidthAdapter
 import com.adedom.adaptivecards.data.models.adapter.ImageSizeAdapter
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Moshi
@@ -50,13 +43,13 @@ object MoshiUtil {
             .add(componentAdapter)
             .add(actionAdapter)
             .add(ComponentTypeAdapter)
-            .add(ComponentSizeAdapter)
-            .add(ComponentWeightAdapter)
-            .add(ComponentWidthAdapter)
-            .add(ComponentStyleAdapter)
-            .add(ComponentSpacingAdapter)
-            .add(ComponentAlignAdapter)
-            .add(ComponentIconAdapter)
+//            .add(ComponentSizeAdapter)
+//            .add(ComponentWeightAdapter)
+//            .add(ComponentWidthAdapter)
+//            .add(ComponentStyleAdapter)
+//            .add(ComponentSpacingAdapter)
+//            .add(ComponentAlignAdapter)
+//            .add(ComponentIconAdapter)
             .add(ImageSizeAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
