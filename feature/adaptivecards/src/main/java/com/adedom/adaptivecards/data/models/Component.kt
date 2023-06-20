@@ -12,7 +12,7 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentSpacing
 import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
-import com.adedom.adaptivecards.data.models.enumclass.ComponentWidth
+import com.adedom.adaptivecards.data.models.enumclass.ImageSize
 import com.squareup.moshi.Json
 
 sealed class Component(
@@ -31,10 +31,10 @@ sealed class Component(
     data class Column(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "index") val index: Int?,
+//        @Json(name = "index") val index: Int?,
         @Json(name = "items") val items: List<Component>?,
-        @Json(name = "width") val width: ComponentWidth?,
-        @Json(name = "style") val style: ComponentStyle?,
+//        @Json(name = "width") val width: ComponentWidth?,
+//        @Json(name = "style") val style: ComponentStyle?,
     ) : Component(selectAction)
 
     data class ColumnSet(
@@ -52,15 +52,15 @@ sealed class Component(
     data class Image(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "style") val style: ComponentStyle?,
+//        @Json(name = "style") val style: ComponentStyle?,
         @Json(name = "url") val url: String?,
-        @Json(name = "size") val size: ComponentSize?,
-        @Json(name = "info") val info: InfoData?,
-        @Json(name = "ratio") val ratio: String?,
-        @Json(name = "column") val column: ColumnData?,
-        @Json(name = "overlays") val overlays: List<Component>?,
-        @Json(name = "items") val items: List<Component>?,
-        @Json(name = "images") val images: List<String>?,
+        @Json(name = "size") val size: ImageSize?,
+//        @Json(name = "info") val info: InfoData?,
+//        @Json(name = "ratio") val ratio: String?,
+//        @Json(name = "column") val column: ColumnData?,
+//        @Json(name = "overlays") val overlays: List<Component>?,
+//        @Json(name = "items") val items: List<Component>?,
+//        @Json(name = "images") val images: List<String>?,
     ) : Component(selectAction)
 
     data class InputDate(
@@ -114,7 +114,7 @@ sealed class Component(
     data class Container(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "index") val index: Int?,
+//        @Json(name = "index") val index: Int?,
         @Json(name = "items") val items: List<Component>?,
     ) : Component(selectAction)
 

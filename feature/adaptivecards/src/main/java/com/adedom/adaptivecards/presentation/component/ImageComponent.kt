@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import coil.compose.AsyncImage
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.presentation.map.mapImageSize
 
 @Composable
 fun ImageComponent(
@@ -15,6 +16,7 @@ fun ImageComponent(
         AsyncImage(
             model = component.url,
             contentDescription = null,
+            modifier = Modifier.mapImageSize(component.size)
         )
     }
 }

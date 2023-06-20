@@ -10,6 +10,7 @@ import com.adedom.adaptivecards.data.models.adapter.ComponentStyleAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentWeightAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentWidthAdapter
+import com.adedom.adaptivecards.data.models.adapter.ImageSizeAdapter
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
@@ -56,6 +57,7 @@ object MoshiUtil {
             .add(ComponentSpacingAdapter)
             .add(ComponentAlignAdapter)
             .add(ComponentIconAdapter)
+            .add(ImageSizeAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
     }
