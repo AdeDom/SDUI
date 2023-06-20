@@ -80,13 +80,13 @@ sealed class Component(
     data class TextBlock(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "index") val index: Int?,
-        @Json(name = "size") val size: ComponentSize?,
-        @Json(name = "weight") val weight: ComponentWeight?,
-        @Json(name = "spacing") val spacing: ComponentSpacing?,
+//        @Json(name = "index") val index: Int?,
+//        @Json(name = "size") val size: ComponentSize?,
+//        @Json(name = "weight") val weight: ComponentWeight?,
+//        @Json(name = "spacing") val spacing: ComponentSpacing?,
         @Json(name = "text") val text: String?,
-        @Json(name = "isSubtle") val isSubtle: Boolean?,
-        @Json(name = "wrap") val wrap: Boolean?,
+//        @Json(name = "isSubtle") val isSubtle: Boolean?,
+//        @Json(name = "wrap") val wrap: Boolean?,
     ) : Component(selectAction)
 
     data class Banner(

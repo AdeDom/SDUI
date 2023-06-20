@@ -22,7 +22,7 @@ fun UiComponentRender(
         is Component.Image -> ImageComponent(modifier, component, onClick)
 //        is Component.InputDate -> InputDateText(component = component)
 //        is Component.InputText -> InputTextText(component = component)
-        is Component.TextBlock -> TextBlockComponent(modifier, component)
+        is Component.TextBlock -> TextBlockComponent(modifier, component, onClick)
         is Component.Banner -> BannerComponent(modifier, component)
         is Component.Text -> TextComponent(modifier, component, onClick)
         is Component.Container -> ContainerComponent(modifier, component, onClick)

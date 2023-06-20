@@ -170,13 +170,13 @@ fun InputTextText(modifier: Modifier = Modifier, component: Component.InputText)
 fun TextBlockText(modifier: Modifier = Modifier, component: Component.TextBlock) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
-        component.index?.let { Text(it.toString()) }
-        component.size?.let { Text(it.value) }
-        component.weight?.let { Text(it.value) }
-        component.spacing?.let { Text(it.value) }
+//        component.index?.let { Text(it.toString()) }
+//        component.size?.let { Text(it.value) }
+//        component.weight?.let { Text(it.value) }
+//        component.spacing?.let { Text(it.value) }
         component.text?.let { Text(it) }
-        component.isSubtle?.let { Text(it.toString()) }
-        component.wrap?.let { Text(it.toString()) }
+//        component.isSubtle?.let { Text(it.toString()) }
+//        component.wrap?.let { Text(it.toString()) }
         Line()
     }
 }
