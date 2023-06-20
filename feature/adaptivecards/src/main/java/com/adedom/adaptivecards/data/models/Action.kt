@@ -3,34 +3,34 @@ package com.adedom.adaptivecards.data.models
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Json
 
-sealed interface Action {
-
-    val id: Int?
+sealed class Action(
+    open val id: Int?
+) {
 
     data class OpenUrl(
         @Json(name = "id") override val id: Int?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
         @Json(name = "url") val url: String?,
-    ) : Action
+    ) : Action(id)
 
     data class ShowCard(
         @Json(name = "id") override val id: Int?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
         @Json(name = "card") val card: Component?,
-    ) : Action
+    ) : Action(id)
 
     data class Submit(
         @Json(name = "id") override val id: Int?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
-    ) : Action
+    ) : Action(id)
 
     data class OpenMore(
         @Json(name = "id") override val id: Int?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "title") val title: String?,
         @Json(name = "url") val url: String?,
-    ) : Action
+    ) : Action(id)
 }
