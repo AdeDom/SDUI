@@ -22,8 +22,8 @@ sealed class Component(
     data class AdaptiveCard(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "body") val body: List<Component> = emptyList(),
-        @Json(name = "actions") val actions: List<Component> = emptyList(),
+        @Json(name = "body") val body: List<Component>?,
+        @Json(name = "actions") val actions: List<Component>?,
         @Json(name = "\$schema") val schema: String?,
         @Json(name = "version") val version: String?,
     ) : Component(selectAction)
@@ -32,7 +32,7 @@ sealed class Component(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "index") val index: Int?,
-        @Json(name = "items") val items: List<Component> = emptyList(),
+        @Json(name = "items") val items: List<Component>?,
         @Json(name = "width") val width: ComponentWidth?,
         @Json(name = "style") val style: ComponentStyle?,
     ) : Component(selectAction)
@@ -40,13 +40,13 @@ sealed class Component(
     data class ColumnSet(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "columns") val columns: List<Component> = emptyList(),
+        @Json(name = "columns") val columns: List<Component>?,
     ) : Component(selectAction)
 
     data class FactSet(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
-        @Json(name = "facts") val facts: List<FactSetData> = emptyList(),
+        @Json(name = "facts") val facts: List<FactSetData>?,
     ) : Component(selectAction)
 
     data class Image(
@@ -58,9 +58,9 @@ sealed class Component(
         @Json(name = "info") val info: InfoData?,
         @Json(name = "ratio") val ratio: String?,
         @Json(name = "column") val column: ColumnData?,
-        @Json(name = "overlays") val overlays: List<Component> = emptyList(),
-        @Json(name = "items") val items: List<Component> = emptyList(),
-        @Json(name = "images") val images: List<String> = emptyList(),
+        @Json(name = "overlays") val overlays: List<Component>?,
+        @Json(name = "items") val items: List<Component>?,
+        @Json(name = "images") val images: List<String>?,
     ) : Component(selectAction)
 
     data class InputDate(
@@ -95,7 +95,7 @@ sealed class Component(
         @Json(name = "index") val index: Int?,
         @Json(name = "info") val info: InfoData?,
         @Json(name = "url") val url: String?,
-        @Json(name = "items") val items: List<Component> = emptyList(),
+        @Json(name = "items") val items: List<Component>?,
     ) : Component(selectAction)
 
     data class Text(
@@ -115,7 +115,7 @@ sealed class Component(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "index") val index: Int?,
-        @Json(name = "items") val items: List<Component> = emptyList(),
+        @Json(name = "items") val items: List<Component>?,
     ) : Component(selectAction)
 
     data class Cards(
@@ -127,7 +127,7 @@ sealed class Component(
         @Json(name = "column") val column: ColumnData?,
         @Json(name = "spacing") val spacing: ComponentSpacing?,
         @Json(name = "page") val page: PageData?,
-        @Json(name = "items") val items: List<Component> = emptyList(),
+        @Json(name = "items") val items: List<Component>?,
     ) : Component(selectAction)
 
     data class Button(
@@ -141,7 +141,7 @@ sealed class Component(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "style") val style: ComponentStyle?,
-        @Json(name = "items") val items: List<Component> = emptyList(),
+        @Json(name = "items") val items: List<Component>?,
     ) : Component(selectAction)
 
     data class TextBadge(
@@ -163,6 +163,6 @@ sealed class Component(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "column") val column: ColumnData?,
-        @Json(name = "columns") val columns: List<Component> = emptyList(),
+        @Json(name = "columns") val columns: List<Component>?,
     ) : Component(selectAction)
 }

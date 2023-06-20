@@ -7,6 +7,7 @@ class GetHomeUseCase {
     fun execute(): List<HomeModel> {
         return listOf(
             HomeModel(id = 1, text = "Started"),
+            HomeModel(id = 99, text = "Sample"),
         )
     }
 

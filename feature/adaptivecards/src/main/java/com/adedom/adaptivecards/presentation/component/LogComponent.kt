@@ -88,8 +88,8 @@ fun ActionOpenMoreText(modifier: Modifier = Modifier, action: Action.OpenMore) {
 fun AdaptiveCardText(modifier: Modifier = Modifier, component: Component.AdaptiveCard) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
-        component.body.forEach { ComponentText(component = it) }
-        component.actions.forEach { ComponentText(component = it) }
+        component.body?.forEach { ComponentText(component = it) }
+        component.actions?.forEach { ComponentText(component = it) }
         component.schema?.let { Text(it) }
         component.version?.let { Text(it) }
         Line()
@@ -101,7 +101,7 @@ fun ColumnText(modifier: Modifier = Modifier, component: Component.Column) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
         component.index?.let { Text(it.toString()) }
-        component.items.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
         component.width?.let { Text(it.value) }
         component.style?.let { Text(it.value) }
         component.selectAction?.let { ActionText(action = it) }
@@ -113,7 +113,7 @@ fun ColumnText(modifier: Modifier = Modifier, component: Component.Column) {
 fun ColumnSetText(modifier: Modifier = Modifier, component: Component.ColumnSet) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
-        component.columns.forEach { ComponentText(component = it) }
+        component.columns?.forEach { ComponentText(component = it) }
         Line()
     }
 }
@@ -122,7 +122,7 @@ fun ColumnSetText(modifier: Modifier = Modifier, component: Component.ColumnSet)
 fun FactSetText(modifier: Modifier = Modifier, component: Component.FactSet) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
-        component.facts.forEach { fact ->
+        component.facts?.forEach { fact ->
             fact.data?.let { Text(it) }
             fact.title?.let { Text(it) }
             fact.value?.let { Text(it) }
@@ -141,9 +141,9 @@ fun ImageText(modifier: Modifier = Modifier, component: Component.Image) {
         component.info?.let { Text(it.toString()) }
         component.ratio?.let { Text(it) }
         component.column?.let { Text(it.toString()) }
-        component.overlays.forEach { ComponentText(component = it) }
-        component.items.forEach { ComponentText(component = it) }
-        component.images.forEach { Text(it) }
+        component.overlays?.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
+        component.images?.forEach { Text(it) }
         Line()
     }
 }
@@ -188,7 +188,7 @@ fun BannerText(modifier: Modifier = Modifier, component: Component.Banner) {
         component.index?.let { Text(it.toString()) }
         component.info?.let { Text(it.toString()) }
         component.url?.let { Text(it) }
-        component.items.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
         Line()
     }
 }
@@ -215,7 +215,7 @@ fun ContainerText(modifier: Modifier = Modifier, component: Component.Container)
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
         component.index?.let { Text(it.toString()) }
-        component.items.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
         Line()
     }
 }
@@ -230,7 +230,7 @@ fun CardsText(modifier: Modifier = Modifier, component: Component.Cards) {
         component.column?.let { Text(it.toString()) }
         component.spacing?.let { Text(it.value) }
         component.page?.let { Text(it.toString()) }
-        component.items.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
         Line()
     }
 }
@@ -250,7 +250,7 @@ fun BadgeText(modifier: Modifier = Modifier, component: Component.Badge) {
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
         component.style?.let { Text(it.value) }
-        component.items.forEach { ComponentText(component = it) }
+        component.items?.forEach { ComponentText(component = it) }
         Line()
     }
 }
@@ -282,7 +282,7 @@ fun LazyHorizontalText(modifier: Modifier = Modifier, component: Component.LazyH
     Column(modifier = modifier) {
         component.type?.let { Text(it.value) }
         component.column?.let { Text(it.toString()) }
-        component.columns.forEach { ComponentText(component = it) }
+        component.columns?.forEach { ComponentText(component = it) }
         Line()
     }
 }

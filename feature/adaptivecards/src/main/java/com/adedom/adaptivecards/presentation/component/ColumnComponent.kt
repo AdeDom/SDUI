@@ -19,7 +19,7 @@ fun ColumnComponent(
             onClick = onClick
         )
     ) {
-        component.items.forEach { component ->
+        component.items?.forEach { component ->
             UiComponentRender(component = component, onClick = onClick)
         }
     }

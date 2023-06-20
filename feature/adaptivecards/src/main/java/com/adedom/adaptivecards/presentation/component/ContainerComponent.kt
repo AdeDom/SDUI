@@ -15,7 +15,7 @@ fun ContainerComponent(
 ) {
     Box(modifier = modifier) {
         Column {
-            component.items.forEach { component ->
+            component.items?.forEach { component ->
                 UiComponentRender(component = component, onClick = onClick)
             }
         }
