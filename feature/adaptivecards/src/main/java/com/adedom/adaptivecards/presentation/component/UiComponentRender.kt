@@ -17,7 +17,7 @@ fun UiComponentRender(
 //        is Component.ActionSubmit -> ActionSubmitText(component = component)
 //        is Component.AdaptiveCard -> AdaptiveCardText(component = component)
         is Component.Column -> ColumnComponent(modifier, component, onClick)
-//        is Component.ColumnSet -> ColumnSetText(component = component)
+        is Component.ColumnSet -> ColumnSetComponent(modifier, component, onClick)
 //        is Component.FactSet -> FactSetText(component = component)
         is Component.Image -> ImageComponent(modifier, component)
 //        is Component.InputDate -> InputDateText(component = component)
