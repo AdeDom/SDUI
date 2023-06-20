@@ -8,9 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.net.toUri
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.presentation.component.AdaptiveCardScreen
@@ -38,6 +40,7 @@ fun MyAppNavHost(
         }
         composable(
             route = "sdui/{id}",
+            arguments = listOf(navArgument("id") { type = NavType.IntType }),
             deepLinks = listOf(navDeepLink { uriPattern = "sdui://adaptivecards/{id}" })
         ) { backStackEntry ->
             val context = LocalContext.current
