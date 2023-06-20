@@ -31,6 +31,7 @@ fun ComponentText(component: Component) {
         is Component.Button -> ButtonText(component = component)
         is Component.Badge -> BadgeText(component = component)
         is Component.TextBadge -> TextBadgeText(component = component)
+        is Component.LazyColumn -> LazyColumnText(component = component)
         is Component.LazyHorizontal -> LazyHorizontalText(component = component)
     }
 }
@@ -263,6 +264,15 @@ fun TextBadgeText(modifier: Modifier = Modifier, component: Component.TextBadge)
         component.spacing?.let { Text(it.value) }
         Text(component.color)
         component.selectAction?.let { ActionText(action = it) }
+        Line()
+    }
+}
+
+@Composable
+fun LazyColumnText(modifier: Modifier = Modifier, component: Component.LazyColumn) {
+    Column(modifier = modifier) {
+        component.type?.let { Text(it.value) }
+        component.body?.forEach { ComponentText(component = it) }
         Line()
     }
 }

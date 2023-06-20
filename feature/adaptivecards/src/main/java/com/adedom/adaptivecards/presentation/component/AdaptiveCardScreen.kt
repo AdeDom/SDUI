@@ -2,8 +2,6 @@ package com.adedom.adaptivecards.presentation.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,7 +27,7 @@ fun AdaptiveCardScreen(
 
     AdaptiveCardContent(
         modifier = modifier,
-        state = viewModel.uiState,
+        uiState = viewModel.uiState,
         onEvent = viewModel::onEvent,
     )
 }
@@ -37,24 +35,22 @@ fun AdaptiveCardScreen(
 @Composable
 fun AdaptiveCardContent(
     modifier: Modifier = Modifier,
-    state: AdaptiveCardUiState,
+    uiState: AdaptiveCardUiState,
     onEvent: (AdaptiveCardUiEvent) -> Unit,
 ) {
     Box(modifier = modifier) {
-        if (state.isLoading) {
-            Box(modifier = Modifier.fillMaxSize()) {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-            }
+        uiState.component?.let {
+            UiComponentRender(
+                component = uiState.component,
+                onClick = { action ->
+                    onEvent(AdaptiveCardUiEvent.OnClick(action))
+                }
+            )
         }
 
-        LazyColumn {
-            items(state.components) { component ->
-                UiComponentRender(
-                    component = component,
-                    onClick = { action ->
-                        onEvent(AdaptiveCardUiEvent.OnClick(action))
-                    }
-                )
+        if (uiState.isLoading) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
     }

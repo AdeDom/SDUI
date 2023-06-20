@@ -31,6 +31,7 @@ fun UiComponentRender(
 //        is Component.Badge -> BadgeText(component = component)
 //        is Component.ActionOpenMore -> ActionOpenMoreText(component = component)
 //        is Component.TextBadge -> TextBadgeText(component = component)
+        is Component.LazyColumn -> LazyColumnComponent(modifier, component, onClick)
         is Component.LazyHorizontal -> LazyHorizontalComponent(modifier, component, onClick)
         else -> {}
     }

@@ -5,7 +5,7 @@ import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSou
 import com.adedom.adaptivecards.data.datasource.remote.AdaptiveCardRemoteDataSourceImpl
 import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepository
 import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepositoryImpl
-import com.adedom.adaptivecards.domain.usecase.GetSampleAdaptiveUseCase
+import com.adedom.adaptivecards.domain.usecase.GetAdaptiveCardByIdUseCase
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
 import com.adedom.home.domain.usecases.GetHomeUseCase
 import com.adedom.home.presentation.viewmodel.HomeViewModel
@@ -28,7 +28,7 @@ val appModule = module {
     singleOf(::AdaptiveCardRepositoryImpl) { bind<AdaptiveCardRepository>() }
 
     // domain
-    factoryOf(::GetSampleAdaptiveUseCase)
+    factoryOf(::GetAdaptiveCardByIdUseCase)
     factoryOf(::GetHomeUseCase)
 
     // presentation

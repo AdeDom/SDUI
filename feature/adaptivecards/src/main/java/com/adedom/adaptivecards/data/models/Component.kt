@@ -153,6 +153,12 @@ sealed class Component(
         @Json(name = "color") val color: String = "#000000",
     ) : Component(selectAction)
 
+    data class LazyColumn(
+        @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "type") val type: ComponentType?,
+        @Json(name = "body") val body: List<Component>?,
+    ) : Component(selectAction)
+
     data class LazyHorizontal(
         @Json(name = "selectAction") override val selectAction: Action?,
         @Json(name = "type") val type: ComponentType?,

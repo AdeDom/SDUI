@@ -20,5 +20,6 @@ enum class ComponentType(val value: String) {
     BUTTON("Button"),
     BADGE("Badge"),
     TEXT_BADGE("TextBadge"),
+    LAZY_COLUMN("LazyColumn"),
     LAZY_HORIZONTAL("LazyHorizontal"),
 }
