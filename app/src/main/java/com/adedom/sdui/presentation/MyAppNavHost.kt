@@ -14,21 +14,30 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.presentation.component.AdaptiveCardScreen
+import com.adedom.home.presentation.component.HomeScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MyAppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "main"
+    startDestination: String = "home"
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {
+        composable("home") {
+            HomeScreen(
+                viewModel = koinViewModel(),
+                onNavigate = {
+                    navController.navigate("sdui/${it.id}")
+                }
+            )
+        }
         composable(
-            route = "main",
+            route = "sdui/{id}",
             deepLinks = listOf(navDeepLink { uriPattern = "sdui://adaptivecards/{id}" })
         ) { backStackEntry ->
             val context = LocalContext.current

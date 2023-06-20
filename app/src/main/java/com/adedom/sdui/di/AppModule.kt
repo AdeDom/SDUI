@@ -7,6 +7,8 @@ import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepository
 import com.adedom.adaptivecards.data.repositories.AdaptiveCardRepositoryImpl
 import com.adedom.adaptivecards.domain.usecase.GetSampleAdaptiveUseCase
 import com.adedom.adaptivecards.presentation.viewmodel.AdaptiveCardViewModel
+import com.adedom.home.domain.usecases.GetHomeUseCase
+import com.adedom.home.presentation.viewmodel.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.bind
@@ -27,7 +29,9 @@ val appModule = module {
 
     // domain
     factoryOf(::GetSampleAdaptiveUseCase)
+    factoryOf(::GetHomeUseCase)
 
     // presentation
     viewModelOf(::AdaptiveCardViewModel)
+    viewModelOf(::HomeViewModel)
 }
