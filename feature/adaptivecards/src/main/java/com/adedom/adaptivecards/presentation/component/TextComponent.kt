@@ -1,5 +1,6 @@
 package com.adedom.adaptivecards.presentation.component
 
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,17 +17,18 @@ fun TextComponent(
     component: Component.Text,
     onClick: (Action) -> Unit,
 ) {
-    component.text?.let {
+    Surface(
+        modifier = modifier.clickable(
+            action = component.selectAction,
+            onClick = onClick
+        )
+    ) {
         Text(
-            text = it,
+            text = component.text.orEmpty(),
             color = Color(android.graphics.Color.parseColor(component.color)),
             fontSize = (component.size ?: ComponentSize.MEDIUM).mapComponent(),
             fontWeight = (component.weight ?: ComponentWeight.LIGHTER).mapComponent(),
             textAlign = component.align?.mapComponent(),
-            modifier = modifier.clickable(
-                action = component.selectAction,
-                onClick = onClick
-            )
         )
     }
 }

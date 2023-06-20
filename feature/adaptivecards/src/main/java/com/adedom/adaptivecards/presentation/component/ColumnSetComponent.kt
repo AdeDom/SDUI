@@ -1,6 +1,7 @@
 package com.adedom.adaptivecards.presentation.component
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Action
@@ -13,14 +14,16 @@ fun ColumnSetComponent(
     component: Component.ColumnSet,
     onClick: (Action) -> Unit
 ) {
-    Row(
+    Surface(
         modifier = modifier.clickable(
             action = component.selectAction,
             onClick = onClick
         )
     ) {
-        component.columns?.forEach { component ->
-            UiComponentRender(component = component, onClick = onClick)
+        Row {
+            component.columns?.forEach { component ->
+                UiComponentRender(component = component, onClick = onClick)
+            }
         }
     }
 }

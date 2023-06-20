@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,36 +24,38 @@ fun BannerComponent(
     modifier: Modifier = Modifier,
     component: Component.Banner
 ) {
-    Box(modifier = modifier) {
-        AsyncImage(
-            model = component.url,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .height(150.dp)
-                .fillMaxSize()
-                .padding(16.dp)
-                .clip(RoundedCornerShape(16.dp))
-        )
+    Surface(modifier = modifier) {
+        Box {
+            AsyncImage(
+                model = component.url,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(150.dp)
+                    .fillMaxSize()
+                    .padding(16.dp)
+                    .clip(RoundedCornerShape(16.dp))
+            )
 
-        Column(
-            modifier = Modifier
-                .align(Alignment.BottomStart)
-                .padding(32.dp)
-        ) {
-            component.info?.title?.let {
-                Text(
-                    text = it,
-                    style = Typography.titleLarge,
-                    color = MaterialTheme.colorScheme.primary
-                )
-            }
-            component.info?.description?.let {
-                Text(
-                    text = it,
-                    style = Typography.titleMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
+            Column(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(32.dp)
+            ) {
+                component.info?.title?.let {
+                    Text(
+                        text = it,
+                        style = Typography.titleLarge,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+                component.info?.description?.let {
+                    Text(
+                        text = it,
+                        style = Typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
             }
         }
     }
