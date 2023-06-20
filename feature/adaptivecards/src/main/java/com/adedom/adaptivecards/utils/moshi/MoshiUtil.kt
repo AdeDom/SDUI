@@ -35,6 +35,7 @@ object MoshiUtil {
             .withSubtype(Component.Button::class.java, ComponentType.BUTTON.value)
             .withSubtype(Component.Badge::class.java, ComponentType.BADGE.value)
             .withSubtype(Component.TextBadge::class.java, ComponentType.TEXT_BADGE.value)
+            .withSubtype(Component.LazyColumn::class.java, ComponentType.LAZY_COLUMN.value)
             .withSubtype(Component.LazyHorizontal::class.java, ComponentType.LAZY_HORIZONTAL.value)
 
         val actionAdapter = PolymorphicJsonAdapterFactory

@@ -4,6 +4,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
@@ -13,7 +14,7 @@ import com.adedom.adaptivecards.utils.extensions.clickable
 fun TextComponent(
     modifier: Modifier = Modifier,
     component: Component.Text,
-    onClick: (Component) -> Unit,
+    onClick: (Action) -> Unit,
 ) {
     component.text?.let {
         Text(
@@ -23,7 +24,6 @@ fun TextComponent(
             fontWeight = (component.weight ?: ComponentWeight.LIGHTER).mapComponent(),
             textAlign = component.align?.mapComponent(),
             modifier = modifier.clickable(
-                component = component,
                 action = component.selectAction,
                 onClick = onClick
             )

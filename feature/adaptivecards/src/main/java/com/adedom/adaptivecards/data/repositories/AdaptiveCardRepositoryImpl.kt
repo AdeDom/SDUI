@@ -10,25 +10,22 @@ class AdaptiveCardRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher
 ) : AdaptiveCardRepository {
 
-    var component: Component? = null
-
     override suspend fun getAdaptiveCardsDefault(): Component {
         return withContext(ioDispatcher) {
             adaptiveCardRemoteDataSource.getAdaptiveCardsDefault()
         }
     }
 
-    override suspend fun getSampleAdaptive(): List<Component> {
+    override suspend fun getSampleAdaptive(): Component {
         return withContext(ioDispatcher) {
-            adaptiveCardRemoteDataSource.getSampleAdaptive().body ?: emptyList()
+            adaptiveCardRemoteDataSource.getSampleAdaptive()
         }
     }
 
-    override fun putComponentArgument(component: Component) {
-        this.component = component
+    override suspend fun getStartedAdaptiveCards(): Component {
+        return withContext(ioDispatcher) {
+            adaptiveCardRemoteDataSource.getStartedAdaptiveCards()
+        }
     }
 
-    override fun getComponentArgument(): Component? {
-        return component
-    }
 }
