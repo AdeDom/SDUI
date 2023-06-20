@@ -8,19 +8,19 @@ import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 
-@Composable
-fun CardsComponent(
-    modifier: Modifier = Modifier,
-    component: Component.Cards,
-    onClick: (Action) -> Unit
-) {
-    Surface(modifier = modifier) {
-        Card {
-            Column {
-                component.items?.forEach { component ->
-                    UiComponentRender(component = component, onClick = onClick)
-                }
-            }
-        }
-    }
-}
+//@Composable
+//fun CardsComponent(
+//    modifier: Modifier = Modifier,
+//    component: Component.Cards,
+//    onClick: (Action) -> Unit
+//) {
+//    Surface(modifier = modifier) {
+//        Card {
+//            Column {
+//                component.items?.forEach { component ->
+//                    UiComponentRender(component = component, onClick = onClick)
+//                }
+//            }
+//        }
+//    }
+//}

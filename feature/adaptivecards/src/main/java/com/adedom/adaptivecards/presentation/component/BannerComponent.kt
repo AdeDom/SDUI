@@ -19,44 +19,44 @@ import coil.compose.AsyncImage
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.ui_component.ui.theme.Typography
 
-@Composable
-fun BannerComponent(
-    modifier: Modifier = Modifier,
-    component: Component.Banner
-) {
-    Surface(modifier = modifier) {
-        Box {
-            AsyncImage(
-                model = component.url,
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .height(150.dp)
-                    .fillMaxSize()
-                    .padding(16.dp)
-                    .clip(RoundedCornerShape(16.dp))
-            )
-
-            Column(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .padding(32.dp)
-            ) {
-                component.info?.title?.let {
-                    Text(
-                        text = it,
-                        style = Typography.titleLarge,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-                component.info?.description?.let {
-                    Text(
-                        text = it,
-                        style = Typography.titleMedium,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-            }
-        }
-    }
-}
+//@Composable
+//fun BannerComponent(
+//    modifier: Modifier = Modifier,
+//    component: Component.Banner
+//) {
+//    Surface(modifier = modifier) {
+//        Box {
+//            AsyncImage(
+//                model = component.url,
+//                contentDescription = null,
+//                contentScale = ContentScale.Crop,
+//                modifier = Modifier
+//                    .height(150.dp)
+//                    .fillMaxSize()
+//                    .padding(16.dp)
+//                    .clip(RoundedCornerShape(16.dp))
+//            )
+//
+//            Column(
+//                modifier = Modifier
+//                    .align(Alignment.BottomStart)
+//                    .padding(32.dp)
+//            ) {
+//                component.info?.title?.let {
+//                    Text(
+//                        text = it,
+//                        style = Typography.titleLarge,
+//                        color = MaterialTheme.colorScheme.primary
+//                    )
+//                }
+//                component.info?.description?.let {
+//                    Text(
+//                        text = it,
+//                        style = Typography.titleMedium,
+//                        color = MaterialTheme.colorScheme.primary
+//                    )
+//                }
+//            }
+//        }
+//    }
+//}

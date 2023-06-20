@@ -11,24 +11,24 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentSize
 import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 import com.adedom.adaptivecards.utils.extensions.clickable
 
-@Composable
-fun TextComponent(
-    modifier: Modifier = Modifier,
-    component: Component.Text,
-    onClick: (Action) -> Unit,
-) {
-    Surface(
-        modifier = modifier.clickable(
-            action = component.selectAction,
-            onClick = onClick
-        )
-    ) {
-        Text(
-            text = component.text.orEmpty(),
-            color = Color(android.graphics.Color.parseColor(component.color)),
-            fontSize = (component.size ?: ComponentSize.MEDIUM).mapComponent(),
-            fontWeight = (component.weight ?: ComponentWeight.LIGHTER).mapComponent(),
-            textAlign = component.align?.mapComponent(),
-        )
-    }
-}
+//@Composable
+//fun TextComponent(
+//    modifier: Modifier = Modifier,
+//    component: Component.Text,
+//    onClick: (Action) -> Unit,
+//) {
+//    Surface(
+//        modifier = modifier.clickable(
+//            action = component.selectAction,
+//            onClick = onClick
+//        )
+//    ) {
+//        Text(
+//            text = component.text.orEmpty(),
+//            color = Color(android.graphics.Color.parseColor(component.color)),
+//            fontSize = (component.size ?: ComponentSize.MEDIUM).mapComponent(),
+//            fontWeight = (component.weight ?: ComponentWeight.LIGHTER).mapComponent(),
+//            textAlign = component.align?.mapComponent(),
+//        )
+//    }
+//}

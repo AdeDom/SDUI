@@ -8,17 +8,17 @@ import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 
-@Composable
-fun LazyHorizontalComponent(
-    modifier: Modifier = Modifier,
-    component: Component.LazyHorizontal,
-    onClick: (Action) -> Unit
-) {
-    Surface(modifier = modifier) {
-        LazyRow {
-            items(component.columns ?: emptyList()) { component ->
-                UiComponentRender(component = component, onClick = onClick)
-            }
-        }
-    }
-}
+//@Composable
+//fun LazyHorizontalComponent(
+//    modifier: Modifier = Modifier,
+//    component: Component.LazyHorizontal,
+//    onClick: (Action) -> Unit
+//) {
+//    Surface(modifier = modifier) {
+//        LazyRow {
+//            items(component.columns ?: emptyList()) { component ->
+//                UiComponentRender(component = component, onClick = onClick)
+//            }
+//        }
+//    }
+//}

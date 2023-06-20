@@ -23,16 +23,15 @@ fun UiComponentRender(
 //        is Component.InputDate -> InputDateText(component = component)
 //        is Component.InputText -> InputTextText(component = component)
         is Component.TextBlock -> TextBlockComponent(modifier, component, onClick)
-        is Component.Banner -> BannerComponent(modifier, component)
-        is Component.Text -> TextComponent(modifier, component, onClick)
+//        is Component.Banner -> BannerComponent(modifier, component)
+//        is Component.Text -> TextComponent(modifier, component, onClick)
         is Component.Container -> ContainerComponent(modifier, component, onClick)
-        is Component.Cards -> CardsComponent(modifier, component, onClick)
+//        is Component.Cards -> CardsComponent(modifier, component, onClick)
 //        is Component.Button -> ButtonText(component = component)
 //        is Component.Badge -> BadgeText(component = component)
 //        is Component.ActionOpenMore -> ActionOpenMoreText(component = component)
 //        is Component.TextBadge -> TextBadgeText(component = component)
         is Component.LazyColumn -> LazyColumnComponent(modifier, component, onClick)
-        is Component.LazyHorizontal -> LazyHorizontalComponent(modifier, component, onClick)
-        else -> {}
+//        is Component.LazyHorizontal -> LazyHorizontalComponent(modifier, component, onClick)
     }
 }
