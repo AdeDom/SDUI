@@ -17,9 +17,11 @@ import com.adedom.adaptivecards.data.models.enumclass.ComponentWeight
 @Composable
 fun ComponentSize.mapComponent(): TextUnit {
     return when (this) {
-        ComponentSize.LARGE -> MaterialTheme.typography.bodyLarge.fontSize
-        ComponentSize.MEDIUM -> MaterialTheme.typography.bodyMedium.fontSize
+        ComponentSize.AUTO -> MaterialTheme.typography.bodyLarge.fontSize
+        ComponentSize.STRETCH -> MaterialTheme.typography.bodyLarge.fontSize
         ComponentSize.SMALL -> MaterialTheme.typography.bodySmall.fontSize
+        ComponentSize.MEDIUM -> MaterialTheme.typography.bodyMedium.fontSize
+        ComponentSize.LARGE -> MaterialTheme.typography.bodyLarge.fontSize
     }
 }
 
