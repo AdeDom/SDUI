@@ -19,7 +19,7 @@ fun UiComponentRender(
         is Component.Column -> ColumnComponent(modifier, component, onClick)
         is Component.ColumnSet -> ColumnSetComponent(modifier, component, onClick)
 //        is Component.FactSet -> FactSetText(component = component)
-        is Component.Image -> ImageComponent(modifier, component)
+        is Component.Image -> ImageComponent(modifier, component, onClick)
 //        is Component.InputDate -> InputDateText(component = component)
 //        is Component.InputText -> InputTextText(component = component)
         is Component.TextBlock -> TextBlockComponent(modifier, component)
