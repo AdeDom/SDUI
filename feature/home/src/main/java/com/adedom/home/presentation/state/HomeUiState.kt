@@ -1,9 +1,7 @@
 package com.adedom.home.presentation.state
 
-import com.adedom.ui_component.domain.models.AppDialogComponent
-import com.adedom.ui_component.domain.models.UiComponent
+import com.adedom.home.domain.models.HomeModel
 
 data class HomeUiState(
-    val uiComponents: List<UiComponent> = emptyList(),
-    val dialog: AppDialogComponent? = null
+    val list: List<HomeModel> = emptyList()
 )

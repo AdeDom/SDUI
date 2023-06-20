@@ -6,9 +6,8 @@ interface AdaptiveCardRepository {
 
     suspend fun getAdaptiveCardsDefault(): Component
 
-    suspend fun getSampleAdaptive(): List<Component>
+    suspend fun getSampleAdaptive(): Component
 
-    fun putComponentArgument(component: Component)
+    suspend fun getStartedAdaptiveCards(): Component
 
-    fun getComponentArgument(): Component?
 }
