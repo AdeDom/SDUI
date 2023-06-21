@@ -2,6 +2,7 @@ package com.adedom.adaptivecards.utils.moshi
 
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
+import com.adedom.adaptivecards.data.models.adapter.ComponentPositionAdapter
 import com.adedom.adaptivecards.data.models.adapter.ComponentTypeAdapter
 import com.adedom.adaptivecards.data.models.adapter.ImageSizeAdapter
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
@@ -51,6 +52,7 @@ object MoshiUtil {
 //            .add(ComponentAlignAdapter)
 //            .add(ComponentIconAdapter)
             .add(ImageSizeAdapter)
+            .add(ComponentPositionAdapter)
             .add(KotlinJsonAdapterFactory())
             .build()
     }
