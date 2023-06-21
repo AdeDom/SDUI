@@ -14,6 +14,10 @@ fun ComponentPosition?.mapPosition(): Alignment {
         ComponentPosition.BOTTOM_LEFT -> Alignment.BottomStart
         ComponentPosition.BOTTOM_CENTER -> Alignment.BottomCenter
         ComponentPosition.BOTTOM_RIGHT -> Alignment.BottomEnd
+        ComponentPosition.TOP -> Alignment.TopCenter
+        ComponentPosition.BOTTOM -> Alignment.BottomCenter
+        ComponentPosition.LEFT -> Alignment.CenterStart
+        ComponentPosition.RIGHT -> Alignment.CenterEnd
         null -> Alignment.Center
     }
 }
