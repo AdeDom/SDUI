@@ -1,12 +1,13 @@
 package com.adedom.adaptivecards.presentation.component
 
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import coil.compose.AsyncImage
 import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
 import com.adedom.adaptivecards.presentation.map.mapImageSize
+import com.adedom.adaptivecards.presentation.map.mapPosition
 import com.adedom.adaptivecards.utils.extensions.clickable
 
 @Composable
@@ -15,7 +16,7 @@ fun ImageComponent(
     component: Component.Image,
     onClick: (Action) -> Unit
 ) {
-    Surface(
+    Box(
         modifier = modifier.clickable(
             action = component.selectAction,
             onClick = onClick
@@ -24,7 +25,14 @@ fun ImageComponent(
         AsyncImage(
             model = component.url,
             contentDescription = null,
-            modifier = Modifier.mapImageSize(component.size)
+            modifier = Modifier.mapImageSize(component.size, component.width, component.height)
         )
+        component.overlays?.forEach {
+            UiComponentRender(
+                component = it,
+                onClick = onClick,
+                modifier = Modifier.align(it.position.mapPosition())
+            )
+        }
     }
 }

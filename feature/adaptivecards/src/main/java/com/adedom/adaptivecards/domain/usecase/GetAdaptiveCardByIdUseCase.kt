@@ -10,7 +10,9 @@ class GetAdaptiveCardByIdUseCase(
     suspend fun execute(id: Int?): Component {
         return when (id) {
             1 -> adaptiveCardRepository.getStartedAdaptiveCards()
+            2 -> adaptiveCardRepository.getOverlaysAndPositionAdaptiveCards()
             else -> adaptiveCardRepository.getSampleAdaptive()
         }
     }
+
 }

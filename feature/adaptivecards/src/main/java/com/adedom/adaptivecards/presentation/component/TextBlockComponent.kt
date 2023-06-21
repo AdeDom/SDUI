@@ -1,6 +1,5 @@
 package com.adedom.adaptivecards.presentation.component
 
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,14 +13,11 @@ fun TextBlockComponent(
     component: Component.TextBlock,
     onClick: (Action) -> Unit
 ) {
-    Surface(
+    Text(
+        text = component.text.orEmpty(),
         modifier = modifier.clickable(
             action = component.selectAction,
             onClick = onClick
         )
-    ) {
-        Text(
-            text = component.text.orEmpty(),
-        )
-    }
+    )
 }

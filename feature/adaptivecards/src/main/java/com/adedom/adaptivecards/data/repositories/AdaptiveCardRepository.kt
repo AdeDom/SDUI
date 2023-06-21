@@ -10,4 +10,6 @@ interface AdaptiveCardRepository {
 
     suspend fun getStartedAdaptiveCards(): Component
 
+    suspend fun getOverlaysAndPositionAdaptiveCards(): Component
+
 }

@@ -1,11 +1,13 @@
 package com.adedom.adaptivecards.data.models
 
+import com.adedom.adaptivecards.data.models.enumclass.ComponentPosition
 import com.adedom.adaptivecards.data.models.enumclass.ComponentType
 import com.squareup.moshi.Json
 import io.adaptivecards.objectmodel.ImageSize
 
 sealed class Component(
-    open val selectAction: Action?
+    open val selectAction: Action?,
+    open val position: ComponentPosition?,
 ) {
 
 //    data class AdaptiveCard(
@@ -19,18 +21,26 @@ sealed class Component(
 
     data class Column(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "index") val index: Int?,
         @Json(name = "items") val items: List<Component>?,
 //        @Json(name = "width") val width: ComponentWidth?,
 //        @Json(name = "style") val style: ComponentStyle?,
-    ) : Component(selectAction)
+    ) : Component(
+        selectAction,
+        position,
+    )
 
     data class ColumnSet(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "columns") val columns: List<Component>?,
-    ) : Component(selectAction)
+    ) : Component(
+        selectAction,
+        position,
+    )
 
 //    data class FactSet(
 //        @Json(name = "selectAction") override val selectAction: Action?,
@@ -40,6 +50,7 @@ sealed class Component(
 
     data class Image(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "style") val style: ComponentStyle?,
         @Json(name = "url") val url: String?,
@@ -47,10 +58,15 @@ sealed class Component(
 //        @Json(name = "info") val info: InfoData?,
 //        @Json(name = "ratio") val ratio: String?,
 //        @Json(name = "column") val column: ColumnData?,
-//        @Json(name = "overlays") val overlays: List<Component>?,
+        @Json(name = "overlays") val overlays: List<Component>?,
 //        @Json(name = "items") val items: List<Component>?,
 //        @Json(name = "images") val images: List<String>?,
-    ) : Component(selectAction)
+        @Json(name = "width") val width: Int?,
+        @Json(name = "height") val height: Int?,
+    ) : Component(
+        selectAction,
+        position,
+    )
 
 //    data class InputDate(
 //        @Json(name = "selectAction") override val selectAction: Action?,
@@ -68,6 +84,7 @@ sealed class Component(
 
     data class TextBlock(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "index") val index: Int?,
 //        @Json(name = "size") val size: ComponentSize?,
@@ -76,7 +93,10 @@ sealed class Component(
         @Json(name = "text") val text: String?,
 //        @Json(name = "isSubtle") val isSubtle: Boolean?,
 //        @Json(name = "wrap") val wrap: Boolean?,
-    ) : Component(selectAction)
+    ) : Component(
+        selectAction,
+        position,
+    )
 
 //    data class Banner(
 //        @Json(name = "selectAction") override val selectAction: Action?,
@@ -102,10 +122,14 @@ sealed class Component(
 
     data class Container(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
 //        @Json(name = "index") val index: Int?,
         @Json(name = "items") val items: List<Component>?,
-    ) : Component(selectAction)
+    ) : Component(
+        selectAction,
+        position,
+    )
 
 //    data class Cards(
 //        @Json(name = "selectAction") override val selectAction: Action?,
@@ -144,9 +168,13 @@ sealed class Component(
 
     data class LazyColumn(
         @Json(name = "selectAction") override val selectAction: Action?,
+        @Json(name = "position") override val position: ComponentPosition?,
         @Json(name = "type") val type: ComponentType?,
         @Json(name = "body") val body: List<Component>?,
-    ) : Component(selectAction)
+    ) : Component(
+        selectAction,
+        position,
+    )
 
 //    data class LazyHorizontal(
 //        @Json(name = "selectAction") override val selectAction: Action?,
