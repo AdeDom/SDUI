@@ -28,4 +28,10 @@ class AdaptiveCardRepositoryImpl(
         }
     }
 
+    override suspend fun getOverlaysAndPositionAdaptiveCards(): Component {
+        return withContext(ioDispatcher) {
+            adaptiveCardRemoteDataSource.getOverlaysAndPositionAdaptiveCards()
+        }
+    }
+
 }

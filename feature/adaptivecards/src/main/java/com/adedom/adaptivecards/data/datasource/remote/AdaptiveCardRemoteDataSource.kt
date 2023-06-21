@@ -9,4 +9,6 @@ interface AdaptiveCardRemoteDataSource {
     suspend fun getSampleAdaptive(): Component
 
     suspend fun getStartedAdaptiveCards(): Component
+
+    suspend fun getOverlaysAndPositionAdaptiveCards(): Component
 }

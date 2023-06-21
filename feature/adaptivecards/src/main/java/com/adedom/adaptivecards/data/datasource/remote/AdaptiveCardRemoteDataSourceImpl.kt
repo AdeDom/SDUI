@@ -18,4 +18,8 @@ class AdaptiveCardRemoteDataSourceImpl(
     override suspend fun getStartedAdaptiveCards(): Component {
         return dataSourceProvider.getMockyService().getStartedAdaptiveCards()
     }
+
+    override suspend fun getOverlaysAndPositionAdaptiveCards(): Component {
+        return dataSourceProvider.getMockyService().getOverlaysAndPositionAdaptiveCards()
+    }
 }
