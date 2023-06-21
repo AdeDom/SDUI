@@ -1,7 +1,7 @@
 package com.adedom.adaptivecards.presentation.component
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.adedom.adaptivecards.data.models.Action
@@ -13,7 +13,7 @@ fun ContainerComponent(
     component: Component.Container,
     onClick: (Action) -> Unit
 ) {
-    Box(modifier = modifier) {
+    Surface(modifier = modifier) {
         Column {
             component.items?.forEach { component ->
                 UiComponentRender(component = component, onClick = onClick)

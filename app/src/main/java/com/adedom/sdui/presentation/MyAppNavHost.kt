@@ -56,7 +56,12 @@ fun MyAppNavHost(
                         }
 
                         is Action.OpenUrl -> {
-                            context.openDeeplink(action.id)
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, action.url?.toUri())
+                                context.startActivity(intent)
+                            } catch (e: ActivityNotFoundException) {
+                                e.printStackTrace()
+                            }
                         }
 
                         is Action.ShowCard -> {

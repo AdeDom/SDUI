@@ -1,31 +1,30 @@
 package com.adedom.adaptivecards.presentation.component
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.adedom.adaptivecards.data.models.Action
 import com.adedom.adaptivecards.data.models.Component
-import com.adedom.adaptivecards.data.models.enumclass.ComponentStyle
+import com.adedom.adaptivecards.presentation.map.mapImageSize
+import com.adedom.adaptivecards.utils.extensions.clickable
 
 @Composable
 fun ImageComponent(
     modifier: Modifier = Modifier,
     component: Component.Image,
+    onClick: (Action) -> Unit
 ) {
-    Box(modifier = modifier) {
+    Surface(
+        modifier = modifier.clickable(
+            action = component.selectAction,
+            onClick = onClick
+        )
+    ) {
         AsyncImage(
             model = component.url,
             contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-                .clip((component.style ?: ComponentStyle.BORDER).mapComponent())
+            modifier = Modifier.mapImageSize(component.size)
         )
     }
 }
